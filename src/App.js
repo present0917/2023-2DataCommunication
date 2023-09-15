@@ -3,9 +3,14 @@ import {Button} from "react-bootstrap";
 import './App.css';
 import PageOne from './Pages/PageOne';
 import PageTwo from './Pages/PageTwo';
-import Layout from './Pages/Layout';
+import Layout from './Layout/Layout';
 import Error from './Pages/Error';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+library.add(fas)
+
 
 function App() {
   const router = createBrowserRouter([
@@ -27,7 +32,7 @@ function App() {
   ]);
   return (
     <div className="App">
-      <Button>button</Button>
+      
       <RouterProvider router={router}></RouterProvider>
     </div>
   );
