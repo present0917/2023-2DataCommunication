@@ -24,7 +24,7 @@ function App() {
           element: <Layout />,
           children: [
             { index: true, element: <PageOne /> },
-            { path: "my", element: <PageTwo /> },
+            { path: "/one", element: <PageTwo /> },
           ],
         },
       ],

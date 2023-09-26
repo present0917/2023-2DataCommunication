@@ -1,42 +1,43 @@
 import styled from "styled-components"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import { Link } from "react-router-dom";
+import { Nav, Navbar } from "react-bootstrap";
 const HeaderDiv = styled.div`
     display: flex;
     /* padding-bottom: 1rem; */
     justify-content: space-between;
     
 `;
-const NavMenu=styled.ol`
-    display:flex;
-    list-style: none;
-`
-const NavMenuItems=styled.li`
-    margin-left: 1rem;
-`
 
-function Header(){
-    return(
-       <HeaderDiv>
+function Header() {
+    return (
+        <HeaderDiv>
 
             <div>
-            <FontAwesomeIcon icon="fa-solid fa-check-square" />
-            아이콘 및 제목
+                <FontAwesomeIcon icon="fa-solid fa-check-square" />
+                아이콘 및 제목
             </div>
-            <NavMenu>
-                <NavMenuItems>
-                    항목
-                </NavMenuItems>
-                <NavMenuItems>
-                    항목
-                </NavMenuItems>
-                <NavMenuItems>
-                    항목
-                </NavMenuItems>
+            {/* <NavMenu>
+             */}
+                 <Nav variant="pills" defaultActiveKey="/home">
 
-                </NavMenu>
+                <Nav.Item>
+                    <Nav.Link eventKey="link-1" href="/one">Active</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link eventKey="link-1">Option 2</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link eventKey="disabled" disabled>
+                        Disabled
+                    </Nav.Link>
+                </Nav.Item>
+            </Nav>
 
-       </HeaderDiv>
+
+        
+
+       </HeaderDiv >
     )
 }
 export default Header
