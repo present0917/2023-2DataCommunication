@@ -9,6 +9,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
+import Home from './Pages/Home';
 library.add(fas)
 
 
@@ -23,8 +24,10 @@ function App() {
           path: "",
           element: <Layout />,
           children: [
-            { index: true, element: <PageOne /> },
-            { path: "/one", element: <PageTwo /> },
+            { index: true, element: <Home /> },
+            { path: "/one", element: <PageOne /> },
+            { path: "/two", element: <PageTwo /> },
+            
           ],
         },
       ],

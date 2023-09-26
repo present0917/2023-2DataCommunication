@@ -9,6 +9,7 @@ const HeaderDiv = styled.div`
     
 `;
 
+
 function Header() {
     return (
         <HeaderDiv>
@@ -22,15 +23,13 @@ function Header() {
                  <Nav variant="pills" defaultActiveKey="/home">
 
                 <Nav.Item>
-                    <Nav.Link eventKey="link-1" href="/one">Active</Nav.Link>
+                    <Nav.Link>  <Link to ='/' style={{textDecorationLine:"none"}}>home</Link></Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link eventKey="link-1">Option 2</Nav.Link>
+                    <Nav.Link> <Link to ='/one' style={{textDecorationLine:"none"}}>Card</Link></Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link eventKey="disabled" disabled>
-                        Disabled
-                    </Nav.Link>
+                    <Nav.Link> <Link to ='/two' style={{textDecorationLine:"none"}}>free</Link> </Nav.Link>
                 </Nav.Item>
             </Nav>
 

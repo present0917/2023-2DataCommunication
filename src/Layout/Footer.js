@@ -4,14 +4,16 @@ const FooterDiv = styled.div`
     background-color:gray;
     flex:1;
     align-items: stretch;
+    margin-top:2rem;
 `;
 const FooterUl=styled.ul`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 0;
+    margin-top: 0;
     list-style: none;
     font-size: 10%;
+    
 `
 const UlLine=styled.div`
     border: 0.1px solid black;
