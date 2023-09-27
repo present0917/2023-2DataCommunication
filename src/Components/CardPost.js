@@ -1,19 +1,18 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import img from '../img/imageNFT.png';
-function CardPost() {
+function CardPost(props) {
     return (
-        <>
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ margin:'1rem',minWidth:'25%',maxWidth:'25%'}}>
                 <Card.Img variant="top" src={img}/>
                 <Card.Body>
-                    <Card.Title>글제목</Card.Title>
+                    <Card.Title>{props.data.title}</Card.Title>
                     <Card.Text>
-                        일단임시로
+                        {props.data.body}
                     </Card.Text>
                 </Card.Body>
             </Card>
-        </>
+        
     )
 }
 export default CardPost
