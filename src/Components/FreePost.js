@@ -5,9 +5,12 @@ function FreePost(){
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>Actions</th>
+              <th>번호</th>
+              <th>말머리</th>
+              <th>제목</th>
+              <th>글쓴이</th>
+              <th>작성일</th>
+              <th>조회수</th>
             </tr>
           </thead>
           <tbody>
@@ -15,10 +18,11 @@ function FreePost(){
                 <td>post.id</td>
                 <td>post.title</td>
                 <td>
-                  <Button variant="danger" >
-                    Delete
-                  </Button>
+                  o
                 </td>
+                <td>o</td>
+                <td>o</td>
+                <td>o</td>
               </tr>
           </tbody>
         </Table>
