@@ -1,4 +1,6 @@
 import { Container, Table, Button } from 'react-bootstrap';
+import { useState,useEffect } from 'react';
+import axios from 'axios';
 function FreePost(){
   const stylea={
     
@@ -9,6 +11,18 @@ function FreePost(){
       fontSize:'10%'
     
   }
+  const [posts,setPosts]=useState([]);
+   useEffect(
+    ()=>{
+        axios.get('http://localhost:3001/posts')
+        .then((response)=>{
+            setPosts(response.data)
+        })
+        .catch((error)=>console.log(error))
+    }
+    ,[])
+
+
     return(
 <Container>
 <Table striped bordered hover style={stylea}>
@@ -23,7 +37,11 @@ function FreePost(){
           </tr>
         </thead>
         <tbody>
-          <tr key="1">
+          
+          {
+           posts.map((datas)=>{
+            return (
+              <tr key="1">
             <td>post.id</td>
             <td>post.title</td>
             <td>o</td>
@@ -31,6 +49,11 @@ function FreePost(){
             <td>o</td>
             <td>o</td>
           </tr>
+            )
+            
+           }) 
+        }
+        
         </tbody>
       </Table>
     </Container>
