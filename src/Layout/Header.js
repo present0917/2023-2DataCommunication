@@ -43,6 +43,9 @@ function Header() {
                     <Nav.Link> <Link to='/two' style={{ textDecorationLine: "none" }}>free</Link> </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
+                    <Nav.Link> <Link to='/test' style={{ textDecorationLine: "none" }}>TestPage</Link> </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
                     <Nav.Link onClick={handleShow}> Login </Nav.Link>
                 </Nav.Item>
                

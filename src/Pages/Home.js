@@ -1,8 +1,10 @@
+import FireInfo from "../Components/FireInfo";
+
 function Home()
 {
     return(
         <div>
-            Home
+            <FireInfo/>
         </div>
     )
 }
