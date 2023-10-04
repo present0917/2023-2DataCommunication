@@ -6,55 +6,41 @@ import { useState } from "react";
 import LoginModal from "../Components/LoginModal";
 import { Modal } from "react-bootstrap";
 import {Button} from "react-bootstrap";
+import HomeButton from "../Components/Homebutton";
 
-const HeaderDiv = styled.div`
+const HeaderNav = styled(Nav)`
+    height:40px;
+    font-size:20px;
+    font-weight:bold;
     display: flex;
     /* padding-bottom: 1rem; */
-    justify-content: space-between;
-    
+    flex-flow:row nowrap;
+    justify-content:space-around;
+    * {
+        background:transparent;
+        text-decoration:none;
+        color:black;
+    }
 `;
 
-
 function Header() {
-
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
+    
     return (
-        <HeaderDiv>
-
-            <div>
-                <FontAwesomeIcon icon="fa-solid fa-check-square" />
-                아이콘 및 제목
-            </div>
-            {/* <NavMenu>
-             */}
-            <Nav variant="pills" defaultActiveKey="/home">
-
-                <Nav.Item>
-                    <Nav.Link>  <Link to='/' style={{ textDecorationLine: "none" }}>home</Link></Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link> <Link to='/one' style={{ textDecorationLine: "none" }}>Card</Link></Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link> <Link to='/two' style={{ textDecorationLine: "none" }}>free</Link> </Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link> <Link to='/test' style={{ textDecorationLine: "none" }}>TestPage</Link> </Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link onClick={handleShow}> Login </Nav.Link>
-                </Nav.Item>
-               
-            </Nav>
-             <LoginModal show={show} onHide={handleClose}></LoginModal>
-
-
-
-        </HeaderDiv >
-    )
+        <HeaderNav fill defaultActiveKey="/home">  
+            <Nav.Item>
+                <Nav.Link> <Link to='/'><FontAwesomeIcon icon="fa-solid fa-house"/></Link></Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Nav.Link> <Link to='/one'>Project</Link></Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Nav.Link> <Link to='/two'>About</Link> </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Nav.Link> <Link to='/two'>마이 페이지</Link> </Nav.Link>
+            </Nav.Item>
+        </HeaderNav>
+    );
 }
-export default Header
+
+export default Header;
