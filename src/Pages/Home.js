@@ -1,8 +1,10 @@
+import ControlledCarousel from "../Components/ControlledCarousel";
+
 function Home()
 {
     return(
         <div>
-            Home
+        <ControlledCarousel/>                
         </div>
     )
 }
