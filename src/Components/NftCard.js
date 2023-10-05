@@ -2,6 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import img from '../img/imageNFT.png';
 function NftCard(props) {
+    //forTestCommit
     console.log(props)
     return (
             <Card style={{ margin:'1rem',minWidth:'25%',maxWidth:'25%'}}>
