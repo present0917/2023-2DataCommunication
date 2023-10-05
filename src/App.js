@@ -6,11 +6,12 @@ import PageTwo from './Pages/PageTwo';
 import Layout from './Layout/Layout';
 import Error from './Pages/Error';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import Home from './Pages/Home';
 import TestPage from './Pages/TestPage';
+import WritePostPage from './Pages/WritePostPage';
+import Practice from './Pages/Practice';
 library.add(fas)
 
 
@@ -29,7 +30,8 @@ function App() {
             { path: "/one", element: <PageOne /> },
             { path: "/two", element: <PageTwo /> },
             { path: "/test", element: <TestPage /> },
-            
+            { path: "/write", element: <WritePostPage/>},
+            { path: "/p", element: <Practice/>}
           ],
         },
       ],
