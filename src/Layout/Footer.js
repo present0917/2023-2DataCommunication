@@ -37,7 +37,7 @@ function Footer(){
                 </li>
                 <UlLine></UlLine>
                 <li className="login-submit">
-                    <Link onClick={handleShow} style={{textDecorationLine:"none"}}>Login</Link>
+                    <Link onClick={handleShow} style={{textDecorationLine:"none", color:"black"}}>Login</Link>
                 </li>
                 <LoginModal show={show} onHide={handleClose}></LoginModal>
             </FooterUl>
