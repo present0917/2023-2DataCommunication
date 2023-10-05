@@ -37,7 +37,7 @@ function Header() {
                 <Nav.Link> <Link to='/two'>About</Link> </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link> <Link to='/two'>마이 페이지</Link> </Nav.Link>
+                <Nav.Link> <Link to='/test'>마이 페이지</Link> </Nav.Link>
             </Nav.Item>
         </HeaderNav>
     );
