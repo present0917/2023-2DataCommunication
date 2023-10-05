@@ -1,8 +1,11 @@
+import ControlledCarousel from '../Components/ControlledCarousel';
+import FireInfo from '../Components/FireInfo';
 function Home()
 {
     return(
         <div>
-            Home
+            <ControlledCarousel/>
+            <FireInfo/>
         </div>
     )
 }
