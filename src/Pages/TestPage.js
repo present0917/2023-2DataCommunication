@@ -1,9 +1,19 @@
 import axios from "axios";
 import { useState,useEffect } from "react";
 import NftCard from "../Components/NftCard";
+import styled from "styled-components";
 function TestPage()
 {
+    const CardsDiv=styled.div`
 
+display: flex;
+flex-wrap: wrap;
+width:80%;
+margin:10%;
+margin-top:5%;
+margin-bottom:5%;
+border: solid;
+`
     const [cards,setCards]=useState([]);
     
     useEffect(()=>{
@@ -42,12 +52,12 @@ function TestPage()
 
 
     return(
-        <>
+        <CardsDiv>
             {cards.map(cards=>{
                 return (<NftCard data={cards}/>)
             })
             }
-        </>
+        </CardsDiv>
     )
 }
 export default TestPage
