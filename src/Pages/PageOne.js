@@ -10,7 +10,7 @@ display: flex;
 flex-wrap: wrap;
 width:80%;
 margin:10%;
-margin-top:5%;
+margin-top:1rem;
 margin-bottom:5%;
 border: solid;
 `

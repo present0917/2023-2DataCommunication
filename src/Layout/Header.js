@@ -15,7 +15,7 @@ const HeaderNav = styled(Nav)`
     font-size:20px;
     font-weight:bold;
     display: flex;
-    /* padding-bottom: 1rem; */
+   
     flex-flow:row nowrap;
     background:transparent;
     justify-content:space-around;
@@ -24,7 +24,7 @@ const HeaderNav = styled(Nav)`
         text-decoration:none;
         color:black;
     }
-    position:absolute;
+
     top: 0;
     width:100%;
     z-index: 999999999
