@@ -8,6 +8,8 @@ import { Modal } from "react-bootstrap";
 import {Button} from "react-bootstrap";
 import HomeButton from "../Components/Homebutton";
 
+
+import './testStyle.css'
 const HeaderNav = styled(Nav)`
     height:40px;
     font-size:20px;
@@ -22,12 +24,16 @@ const HeaderNav = styled(Nav)`
         text-decoration:none;
         color:black;
     }
+    position:absolute;
+    top: 0;
+    width:100%;
+    z-index: 999999999
 `;
 
 function Header() {
     
     return (
-        <HeaderNav fill defaultActiveKey="/home">  
+        <HeaderNav fill defaultActiveKey="/home" className='main-header'>  
             <Nav.Item>
                 <Nav.Link> <Link to='/'><FontAwesomeIcon icon="fa-solid fa-house"/></Link></Nav.Link>
             </Nav.Item>
@@ -38,7 +44,7 @@ function Header() {
                 <Nav.Link> <Link to='/two'>About</Link> </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link> <Link to='/three'>마이 페이지</Link> </Nav.Link>
+                <Nav.Link> <Link to='/test'>마이 페이지</Link> </Nav.Link>
             </Nav.Item>
         </HeaderNav>
     );
