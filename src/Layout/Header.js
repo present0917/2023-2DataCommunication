@@ -15,6 +15,7 @@ const HeaderNav = styled(Nav)`
     display: flex;
     /* padding-bottom: 1rem; */
     flex-flow:row nowrap;
+    background:transparent;
     justify-content:space-around;
     * {
         background:transparent;
