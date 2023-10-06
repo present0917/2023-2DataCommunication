@@ -11,7 +11,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import Home from './Pages/Home';
 import TestPage from './Pages/TestPage';
 import WritePostPage from './Pages/WritePostPage';
-import Practice from './Pages/Practice';
+
 library.add(fas)
 
 
@@ -31,7 +31,7 @@ function App() {
             { path: "/two", element: <PageTwo /> },
             { path: "/test", element: <TestPage /> },
             { path: "/write", element: <WritePostPage/>},
-            { path: "/p", element: <Practice/>}
+
           ],
         },
       ],

@@ -3,9 +3,10 @@ import axios from "axios";
 import CardPost from "../Components/CardPost";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-
+import { Button } from "react-bootstrap";
+import { Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 const CardsDiv=styled.div`
-
 display: flex;
 flex-wrap: wrap;
 width:80%;
@@ -27,6 +28,8 @@ function PageOne()
 
 },[]);
     return(
+        <>
+        <Link to='/write'><Button>글 작성</Button></Link>
         <CardsDiv>
             {cards.map(cards=>{
                 return (<CardPost data={cards}/>)
@@ -34,6 +37,7 @@ function PageOne()
             }
             
         </CardsDiv>
+        </>
     )
 }
 export default PageOne;
