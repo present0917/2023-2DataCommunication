@@ -29,6 +29,7 @@ function PageOne()
 },[]);
     return(
         <>
+        <div className="spacer"/>
         <Link to='/write'><Button>글 작성</Button></Link>
         <CardsDiv>
             {cards.map(cards=>{

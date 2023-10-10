@@ -24,10 +24,10 @@ const HeaderNav = styled(Nav)`
         text-decoration:none;
         color:black;
     }
-
     top: 0;
     width:100%;
-    z-index: 999999999
+    z-index: 999999999;
+    position:fixed;
 `;
 
 function Header() {
