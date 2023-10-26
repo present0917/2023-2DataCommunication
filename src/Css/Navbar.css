@@ -1,0 +1,27 @@
+#main-navbar {
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  text-decoration: none;
+  flex-flow: row nowrap;
+  background: transparent;
+  justify-content: space-around;
+  top: 0;
+  width: 100%;
+  z-index: 999999999;
+}
+
+#main-navbar:hover {
+  background-color: white;
+  transition: 0.2s background-color linear;
+}
+
+#navbar-active {
+  position: fixed;
+  background: linear-gradient(90deg, #fcc1cc, #ffa4b3);
+}
+
+#navbar-active:hover {
+  color: blue;
+}

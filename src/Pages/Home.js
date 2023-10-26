@@ -1,5 +1,6 @@
 import FireInfo from "../Components/FireInfo";
 import ControlledCarousel from "../Components/ControlledCarousel";
+import { useState } from "react";
 
 function Home()
 {
