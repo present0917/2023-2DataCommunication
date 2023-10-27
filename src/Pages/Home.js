@@ -1,13 +1,13 @@
-import FireInfo from "../Components/FireInfo";
 import ControlledCarousel from "../Components/ControlledCarousel";
 import { useState } from "react";
+import ConcertList from "../Components/ConcertList";
 
 function Home()
 {
     return(
         <div>
         <ControlledCarousel/>                
-            <FireInfo/>
+        <ConcertList/>
         </div>
     )
 }

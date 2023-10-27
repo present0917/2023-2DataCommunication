@@ -8,7 +8,6 @@ import { Modal } from "react-bootstrap";
 import {Button} from "react-bootstrap";
 import HomeButton from "../Components/Homebutton";
 import '../Css/Navbar.css';
-import '../Css/testStyle.css'
 
 const HeaderNav = styled(Nav)`
     height:40px;
@@ -49,16 +48,16 @@ function Header() {
     return (
         <HeaderNav fill defaultActiveKey="/home" className='main-header' id={mainNavbar?'navbar-active':'main-navbar'}>  
             <Nav.Item>
-                <Nav.Link as={Link} to='/'><FontAwesomeIcon icon="fa-solid fa-house"/></Nav.Link>
+                <Nav.Link as={Link} to='/' id="navbar-contents"><FontAwesomeIcon icon="fa-solid fa-house"/></Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link as={Link} to='/one'>Project</Nav.Link>
+                <Nav.Link as={Link} to='/one' id="navbar-contents">Project</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link as={Link} to='/two'>About</Nav.Link>
+                <Nav.Link as={Link} to='/two' id="navbar-contents">About</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link as={Link} to='/test'>마이 페이지</Nav.Link>
+                <Nav.Link as={Link} to='/test' id="navbar-contents">마이 페이지</Nav.Link>
             </Nav.Item>
         </HeaderNav>
     );

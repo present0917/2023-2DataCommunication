@@ -22,6 +22,6 @@
   background: linear-gradient(90deg, #fcc1cc, #ffa4b3);
 }
 
-#navbar-active:hover {
+#navbar-contents:hover {
   color: blue;
 }

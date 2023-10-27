@@ -1,12 +1,7 @@
-.main-header:hover {
-    background-color: white;
-    transition: .2s background-color linear;
-}
-
 .spacer {
-    height: 4rem;
+  height: 4rem;
 }
 
 .fire-info-title {
-    font-size: 25px;    
+  font-size: 25px;
 }
