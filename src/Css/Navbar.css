@@ -19,7 +19,7 @@
 
 #navbar-active {
   position: fixed;
-  background: linear-gradient(90deg, #fcc1cc, #ffa4b3);
+  background: linear-gradient(90deg, #ffffff, #f5cdbe);
 }
 
 #navbar-contents:hover {
