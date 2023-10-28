@@ -4,7 +4,7 @@ import HotContainer from "./HotContainer";
 
 
 
-const MovieList=()=>{
+const ConcertList=()=>{
     return <>
         <div className="top-topic">
             What's hot?
@@ -13,4 +13,4 @@ const MovieList=()=>{
     </>
 }
 
-export default MovieList;
+export default ConcertList;

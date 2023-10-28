@@ -1,11 +1,7 @@
-.movie-list {
-  width: 421px;
-  height: 684px;
-}
-
-.Movie-contaier {
-  width: 421px;
-  height: 684px;
+.concert-content {
+  margin: 0;
+  height: 50%;
+  width: 500px;
 }
 
 .big-img {
@@ -14,4 +10,8 @@
 }
 
 .normal-img {
+}
+
+#concert-content-title {
+  padding-top: 10px;
 }
