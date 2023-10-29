@@ -12,6 +12,7 @@ import Home from './Pages/Home';
 import TestPage from './Pages/TestPage';
 import WritePostPage from './Pages/WritePostPage';
 import ReservationPage from './Pages/ReservationPage';
+import TestCaver from './testcaver';
 
 library.add(fas)
 
@@ -33,7 +34,7 @@ function App() {
             { path: "/test", element: <TestPage /> },
             { path: "/write", element: <WritePostPage/>},
             { path: "/res", element: <ReservationPage/>},
-
+            { path: "/testcaver", element: <TestCaver/>},
           ],
         },
       ],
