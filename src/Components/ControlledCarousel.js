@@ -40,7 +40,7 @@ function ControlledCarousel() {
             <Carousel.Caption>
               <h3>{concert.title}</h3>
               <p>기간: {concert.day}</p>
-              <CarouselButton />
+              <CarouselButton concertId={concert.id} />
             </Carousel.Caption>
           </Carousel.Item>
         ))}

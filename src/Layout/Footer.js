@@ -16,7 +16,7 @@ const FooterUl=styled.ul`
     justify-content: space-between;
     margin-top: 0;
     list-style: none;
-    font-size: 10%;
+    /* font-size: 10%; */
 `
 const UlLine=styled.div`
     border: 0.1px solid black;

@@ -12,6 +12,7 @@ import Home from './Pages/Home';
 import TestPage from './Pages/TestPage';
 import WritePostPage from './Pages/WritePostPage';
 import ReservationPage from './Pages/ReservationPage';
+import Detail from './Pages/Detail';
 
 library.add(fas)
 
@@ -28,11 +29,13 @@ function App() {
           element: <Layout />,
           children: [
             { index: true, element: <Home /> },
+            { path: '/:concertId', element: <Detail /> },
             { path: "/one", element: <PageOne /> },
             { path: "/two", element: <PageTwo /> },
             { path: "/test", element: <TestPage /> },
             { path: "/write", element: <WritePostPage/>},
             { path: "/res", element: <ReservationPage/>},
+            
 
           ],
         },

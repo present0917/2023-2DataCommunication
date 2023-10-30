@@ -5,11 +5,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-function CarouselButton() {
-
+function CarouselButton(props) {
+const pathTo=`/${props.concertId}`
     return(
         <div>
-                <Button variant="secondary" as={Link} to='http://localhost:3000/one'>예매하기 &raquo;</Button>
+                <Button variant="secondary" as={Link} to={pathTo}>예매하기 &raquo;</Button>
         </div>
     );
 };
