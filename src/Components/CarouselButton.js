@@ -9,7 +9,7 @@ function CarouselButton(props) {
 const pathTo=`/detail/${props.data.id}`
     return(
         <div>
-                <Button variant="secondary" as={Link} to='http://localhost:3000/one'>예매하기 &raquo;</Button>
+                <Button variant="secondary" as={Link} to={pathTo}>예매하기 &raquo;</Button>
         </div>
     );
 };
