@@ -29,12 +29,12 @@ function App() {
           element: <Layout />,
           children: [
             { index: true, element: <Home /> },
-            { path: '/:concertId', element: <Detail /> },
+            { path: '/detail/:id', element: <Detail /> },
             { path: "/one", element: <PageOne /> },
             { path: "/two", element: <PageTwo /> },
             { path: "/test", element: <TestPage /> },
             { path: "/write", element: <WritePostPage/>},
-            { path: "/res", element: <ReservationPage/>},
+            { path: "/res/:id", element: <ReservationPage/>},
             
 
           ],

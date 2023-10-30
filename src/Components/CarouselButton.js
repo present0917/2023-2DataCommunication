@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function CarouselButton(props) {
-const pathTo=`/${props.concertId}`
+const pathTo=`/detail/${props.data.id}`
     return(
         <div>
                 <Button variant="secondary" as={Link} to={pathTo}>예매하기 &raquo;</Button>
