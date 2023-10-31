@@ -10,11 +10,11 @@ const HotContainer=()=>{
     return (<>
         <div className="hot-container">
                 {
-                    concerts.map((concert,i)=>{
+                    concerts.map((concert)=>{
                         
                         return (
-                        <Link to={`/detail/${concert.id}`}>
-                        <Concert concert={concert} num={i} key={i} className="movie-list" />
+                        <Link to={`/detail/${concert.id}`} key={concert.id}>
+                        <Concert concert={concert} num={concert.id} key={concert.id} className="movie-list" />
                         </Link>
                         )
                     })

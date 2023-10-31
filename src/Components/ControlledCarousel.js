@@ -30,12 +30,12 @@ function ControlledCarousel() {
   return (
     <CarouselDiv>
       <Carousel activeIndex={index} onSelect={handleSelect}>
-        {concerts.map((concert, i) => (
+        {concerts.map((concert) => (
           <Carousel.Item key={concert.id} interval={10000}>
             <img
               className="d-block w-100"
-              src={require(`../img/concert${i+1}carousal.jfif`)}
-              alt={`img${i}`}
+              src={require(`../img/concert${concert.id+1}carousal.jfif`)}
+              alt={`img${concert.id+1}`}
             />
             <Carousel.Caption>
               <h3>{concert.title}</h3>
