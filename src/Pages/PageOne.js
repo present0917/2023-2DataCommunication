@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { Button } from "react-bootstrap";
 import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+
 const CardsDiv=styled.div`
 display: flex;
 flex-wrap: wrap;
@@ -29,7 +30,7 @@ function PageOne()
 },[]);
     return(
         <>
-        <div className="spacer"/>
+        
         <Link to='/write'><Button>글 작성</Button></Link>
         <CardsDiv>
             {cards.map(cards=>{
