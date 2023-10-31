@@ -1,3 +1,10 @@
+.home-nav {
+  background: transparent;
+  position: absolute;
+}
+.out-nav {
+  position: static;
+}
 #main-navbar {
   height: 40px;
   font-size: 20px;
@@ -5,7 +12,6 @@
   display: flex;
   text-decoration: none;
   flex-flow: row nowrap;
-  background: transparent;
   justify-content: space-around;
   top: 0;
   width: 100%;

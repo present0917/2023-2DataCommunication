@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Nav, Navbar } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import LoginModal from "../Components/LoginModal";
@@ -15,25 +15,28 @@ const HeaderNav = styled(Nav)`
     font-weight:bold;
     display: flex;
     flex-flow:row nowrap;
-    background:transparent;
     justify-content:space-around;
     * {
-        background:transparent;
         text-decoration:none;
         color:black;
     }
     top: 0;
     width:100%;
     z-index: 999999999;
-    position:absolute;
 `;
 
 function Header() {
     const [mainNavbar,setmainNavbar]=useState(false);
+    const [homeNavbar,setHomeNavbar]=useState(true);
+    const {pathname}=useLocation();
 
     useEffect(()=>{
         window.addEventListener('scroll',changeBackground);
     },[]);
+    
+    useEffect(()=>{
+        changePage(pathname)
+    },[pathname]);
 
     const changeBackground=()=>{
         if(window.scrollY>=300){
@@ -44,9 +47,19 @@ function Header() {
         }
     }
 
-
+    const changePage=(pathname)=>{
+        if(pathname==="/"){
+            setHomeNavbar(true);
+        }
+        else{
+            console.log(pathname);
+            setHomeNavbar(false);
+        }
+    }
     return (
-        <HeaderNav fill defaultActiveKey="/home" className='main-header' id={mainNavbar?'navbar-active':'main-navbar'}>  
+        <HeaderNav fill defaultActiveKey="/home" 
+            className={homeNavbar?'home-nav':'out-nav'} 
+            id={mainNavbar?'navbar-active':'main-navbar'}>  
             <Nav.Item>
                 <Nav.Link as={Link} to='/' id="navbar-contents"><FontAwesomeIcon icon="fa-solid fa-house"/></Nav.Link>
             </Nav.Item>

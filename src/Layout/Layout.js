@@ -7,7 +7,6 @@ function Layout()
     return(
         <>
             <Header></Header>
-            <div className="spacer" />
             <Outlet ></Outlet>
             <Footer></Footer>
         </>
