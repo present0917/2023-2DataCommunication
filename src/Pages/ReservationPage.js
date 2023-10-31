@@ -45,7 +45,6 @@ const cols = Array.from(new Set(Seatdata.map(seat => seat.col)));
 
   return (
     <>
-    <Gap></Gap>
 
     <Cont>
   <h1>좌석 예약</h1>
