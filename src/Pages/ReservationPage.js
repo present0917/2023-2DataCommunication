@@ -1,4 +1,3 @@
-import Gap from "../Components/Gap";
 import React, { useState } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Seatdata from "./Seatdata";
