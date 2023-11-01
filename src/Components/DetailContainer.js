@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import DetailContent from "./DetailContent";
 import "../Css/DetailContainer.css";
 
-const DetailContainer=()=>{
+const DetailContainer=(props)=>{
+    const concert=props.concert;
+
     return (
         <>
             <div className="detail-container-box">
                 <div className="left-content-box">
                     <img
-                        src={require(`../img/concert1.jpg`)}
+                        src={require(`../img/concert${concert.id+1}.jpg`)}
                         alt={"bug"}
                     />
                 </div>
-                <div className="right-content-box">
-                        text
-                </div>
+                {/* right ul list의 재사용성을 높여야함 */}
+                <DetailContent 
+                    rate={concert.rate}
+                    runningTime={concert.runningTime}
+                    castMember={concert.castMember}
+                />
             </div>
         </>
     )

@@ -1,17 +1,39 @@
 .detail-container-box {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin: 3.8rem;
+  margin-left: 10rem;
 }
 
 .left-content-box {
   float: left;
-  width: 100px;
 }
 
 .right-content-box {
-  float: right;
+  margin-left: 2.5rem;
+  float: left;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.right-content-box * {
+  line-height: 45px;
+  font-size: 20px;
+}
+
+.right-ul-list {
   display: flex;
   justify-content: space-between;
-  width: 300px;
+  margin-bottom: 0;
+}
+
+.no-dot {
+  list-style-type: none;
+  list-style: none;
+}
+
+.content-def {
+  color: #333;
+  font-weight: bold;
+  padding-right: 50px;
 }

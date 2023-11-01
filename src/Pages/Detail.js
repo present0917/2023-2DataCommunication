@@ -8,13 +8,13 @@ import DetailContainer from "../Components/DetailContainer";
 function Detail()
 {
     const params = useParams();
-    const data=ConcertData.find(datas => datas.id==params.id);
-    console.log(data);
-    const pathTo=`/res/${data.id}`
+    const concert=ConcertData.find(datas => datas.id==params.id);
+    console.log(concert);
+    const pathTo=`/res/${concert.id}`
     return(
         <>
-            <DetailTitle title={data.title} day={data.day}/>
-            <DetailContainer />
+            <DetailTitle title={concert.title} day={concert.day}/>
+            <DetailContainer concert={concert}/>
             <Button variant="secondary" as={Link} to={pathTo}>예매하기 &raquo;</Button>
         </>
     )
