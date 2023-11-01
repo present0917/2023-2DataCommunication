@@ -1,0 +1,17 @@
+.detail-container-box {
+  display: flex;
+  justify-content: space-between;
+  margin: 3.8rem;
+}
+
+.left-content-box {
+  float: left;
+  width: 100px;
+}
+
+.right-content-box {
+  float: right;
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}

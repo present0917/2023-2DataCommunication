@@ -4,6 +4,7 @@
 }
 .out-nav {
   position: static;
+  background: linear-gradient(90deg, #ffffff, #f5cdbe);
 }
 #main-navbar {
   height: 40px;

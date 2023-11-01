@@ -1,4 +1,8 @@
 .hot-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+}
+.hot-container * {
+  color: black;
+  text-decoration: none;
 }
