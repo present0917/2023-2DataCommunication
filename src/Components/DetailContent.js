@@ -8,7 +8,7 @@ const DetailContent=(props)=>{
     return (<>
         <div className="right-content-box">
                         <ul className="right-ul-list">
-                            <div className="content-def">
+                            <div className="content-def-short">
                                 등급
                             </div>
                             <li className="no-dot">
@@ -16,21 +16,22 @@ const DetailContent=(props)=>{
                             </li>
                         </ul>
                         <ul className="right-ul-list">
-                        <div className="content-def">
-                                관람시간
-                            </div>
-                            <li className="no-dot">
-                                {runningTime}
-                        </li>
+                            <div className="content-def-long">
+                                    관람시간
+                                </div>
+                                <li className="no-dot">
+                                    {runningTime}
+                            </li>
                         </ul>
                         <ul className="right-ul-list">
-                            <div className="content-def">
+                            <div className="content-def-short">
                                 출연
                             </div>
                             <li className="no-dot">
                                 {castMember}
                             </li>
                         </ul>
+                        <hr className="detail-content-horz"/>
                 </div> 
     </>)
 }

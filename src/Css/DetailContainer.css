@@ -10,10 +10,12 @@
 }
 
 .right-content-box {
-  margin-left: 2.5rem;
+  margin-left: 3rem;
+  margin-right: 6.3rem;
   float: left;
   display: inline-block;
   vertical-align: middle;
+  width: 100%;
 }
 
 .right-content-box * {
@@ -23,7 +25,6 @@
 
 .right-ul-list {
   display: flex;
-  justify-content: space-between;
   margin-bottom: 0;
 }
 
@@ -32,8 +33,21 @@
   list-style: none;
 }
 
-.content-def {
+.content-def-long {
   color: #333;
   font-weight: bold;
   padding-right: 50px;
+}
+
+.content-def-short {
+  color: #333;
+  font-weight: bold;
+  padding-right: 50px;
+  margin-right: 2.1rem;
+}
+
+.detail-content-horz {
+  border-bottom: 1px solid black;
+  margin-left: 2rem;
+  margin-right: 0rem;
 }

@@ -16,7 +16,7 @@ const Concert=(props)=>{
                     alt={`../img/concert${props.num+1}.jpg`}/>
             </div>
             <h4 id="concert-content-title">{props.concert.title}</h4>
-            <p>{props.concert.day}</p>
+            <p id="concert-content-day">{props.concert.day}</p>
         </div>
     </>);
 }

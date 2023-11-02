@@ -36,7 +36,7 @@ function ControlledCarousel() {
               className="d-block w-100"
               src={require(`../img/concert${concert.id+1}carousal.jfif`)}
               alt={`img${concert.id+1}`}
-            />
+            />  
             <Carousel.Caption>
               <h3>{concert.title}</h3>
               <p>기간: {concert.day}</p>

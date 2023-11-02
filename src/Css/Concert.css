@@ -13,5 +13,9 @@
 }
 
 #concert-content-title {
-  padding-top: 10px;
+  padding-top: 1rem;
+}
+
+#concert-content-day {
+  margin-top: 0;
 }
