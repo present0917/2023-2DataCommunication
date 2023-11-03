@@ -15,6 +15,8 @@ import ReservationPage from './Pages/ReservationPage';
 
 import Detail from './Pages/Detail';
 import TestCaver from './testcaver';
+import ReservationPageNet from './Pages/ReservationPageNet';
+import MapTest from './Pages/MapTest';
 
 library.add(fas)
 
@@ -38,6 +40,8 @@ function App() {
             { path: "/write", element: <WritePostPage/>},
             { path: "/res/:id", element: <ReservationPage/>},
             { path: "/testcaver", element: <TestCaver/>},
+            { path: "/testseat/:id", element: <ReservationPageNet/>},
+            { path: "/maptest", element: <MapTest/>},
           ],
         },
       ],

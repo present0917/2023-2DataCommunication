@@ -1,12 +1,12 @@
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import Seatdata from "./Seatdata";
 import styled from 'styled-components';
-
+import { useParams } from "react-router-dom"
+import axios from 'axios';
 const Cont = styled.div`
     margin: 0 auto;
-    height:500px;
+
     width:80%;
 `;
 const Seat = styled.button`
@@ -18,8 +18,33 @@ const Seat = styled.button`
     width:50px;
 `;
 
-const ReservationPage = ({  }) => {
+const ReservationPageNet = ({  }) => {
+
+  const params = useParams();
+      useEffect(
+        ()=>{
+            axios.get(`http://localhost:8080/concert/detail/${params.id}/book`)
+            .then((response)=>{
+                setSeats(response.data);
+            })
+            .catch((error)=>console.log(error))
+
+        }
+        ,[])
+
+
   const [selectedSeats, setSelectedSeats] = useState([]);
+  const [seats, setSeats] = useState([]);
+  const [rows, setRows] = useState([]);
+  const [cols, setCols] = useState([]);
+  useEffect(() => {
+    if (seats) {
+        console.log(seats);
+        setRows( Array.from(new Set(seats.map(seat => seat.row))));
+        setCols(Array.from(new Set(seats.map(seat => seat.col))));
+    }
+}, [seats]);
+
 
   const handleSeatClick = (row, col) => {
     const seat = { row, col };
@@ -34,14 +59,13 @@ const ReservationPage = ({  }) => {
     }
 
     setSelectedSeats((newSeats) => {
-        // console.log(newSeats);
+        console.log(newSeats);
         return newSeats; 
       });//console.log 조회용 (usestate업데이트 전 값이 출력되어 콜백으로 호출) 
 
   };
   
-const rows = Array.from(new Set(Seatdata.map(seat => seat.row)));
-const cols = Array.from(new Set(Seatdata.map(seat => seat.col)));
+
 
 const request = ()=>{
   console.log(selectedSeats);
@@ -55,7 +79,7 @@ const request = ()=>{
   {rows.map(row => (
     <div >
       {cols.map(col => {
-        const seatInfo = Seatdata.find(seat => seat.row === row && seat.col === col);
+        const seatInfo = seats.find(seat => seat.row === row && seat.col === col);
         const isSelected = selectedSeats.some(
           selectedSeat => selectedSeat.row === row && selectedSeat.col === col
         );
@@ -64,8 +88,10 @@ const request = ()=>{
             className={`seat ${isSelected ? 'selected' : ''}`}
             onClick={() => handleSeatClick(row, col)}
             key={`seat-${row}-${col}`}
+            disabled={seatInfo.data ? true : false}
           >
-            {seatInfo ? seatInfo.data : ''}
+            {seatInfo ? `${seatInfo.col+seatInfo.row}` : ''}
+            
           </Seat>
         );
       })}
@@ -78,4 +104,4 @@ const request = ()=>{
     </>
   );
 };
-export default ReservationPage;
+export default ReservationPageNet;
