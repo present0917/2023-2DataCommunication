@@ -2,6 +2,7 @@ import Caver from "caver-js";
 import axios from "axios";
 import { Buffer } from "buffer";
 import { useEffect, useState } from "react";
+import GetAcount from "./klaytn/GetAcount";
 
 function TestCaver(){
     const styles = {
@@ -67,7 +68,7 @@ function TestCaver(){
               //console.log(JSON.stringify(response.data));
               // console.log(JSON.stringify(response.data.uri));
               //setJsonURI(JSON.stringify(response.data.uri));
-              const uri = JSON.stringify(response.data.uri);
+              const uri = response.data.uri;
               setJsonURI(uri);
               console.log(jsonURI);
               //return JSON.stringify(response.data.uri);
@@ -134,7 +135,17 @@ function TestCaver(){
     }
 
     useEffect(()=>{
-        connect();
+      if(account == ""){
+        GetAcount()
+        .then((result) => {
+          // 결과 처리
+          console.log('Result:', result);
+          setAccount(result[0]);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      }
     },[]);
     return <>
         <div style={styles}></div>
