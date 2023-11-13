@@ -16,6 +16,7 @@ const DetailContainer=(props)=>{
                 </div>
                 {/* right ul list의 재사용성을 높여야함 */}
                 <DetailContent 
+                    id={concert.id}
                     rate={concert.rate}
                     runningTime={concert.runningTime}
                     castMember={concert.castMember}

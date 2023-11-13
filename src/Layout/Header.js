@@ -12,7 +12,8 @@ import '../Css/Navbar.css';
 const HeaderNav = styled(Nav)`
     height:40px;
     font-size:20px;
-    font-weight:bold;
+    font-weight:900;
+    font-family: SUITE-Variable;
     display: flex;
     flex-flow:row nowrap;
     justify-content:space-around;
