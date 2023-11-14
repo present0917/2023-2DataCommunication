@@ -5,6 +5,7 @@
 .out-nav {
   position: static;
   background: linear-gradient(90deg, #ffffff, #f5cdbe);
+  text-shadow: none !important;
 }
 #main-navbar {
   height: 40px;
@@ -16,6 +17,7 @@
   top: 0;
   width: 100%;
   z-index: 999999999;
+  text-shadow: -1px 0 #aeaeae, 0 1px #aeaeae, 1px 0 #aeaeae, 0 -1px #aeaeae;
 }
 
 #main-navbar:hover {

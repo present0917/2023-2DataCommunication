@@ -20,7 +20,6 @@ const HeaderNav = styled(Nav)`
     * {
         text-decoration:none;
         color:black;
-        text-shadow: -1px 0 #aeaeae, 0 1px #aeaeae, 1px 0 #aeaeae, 0 -1px #aeaeae;
     }
     top: 0;
     width:100%;
