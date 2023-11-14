@@ -1,11 +1,11 @@
 .concert-content {
-  margin: 0;
-  height: 50%;
-  width: 500px;
+  margin: 10px;
+ 
 }
 
 .concert-img {
   transition: all ease 0.2s;
+  
 }
 
 .concert-img:hover {

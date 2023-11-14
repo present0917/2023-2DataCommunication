@@ -13,9 +13,11 @@ const Concert=(props)=>{
             <div className="concert-img">
                 <img 
                     src={require(`../img/concert${props.num+1}.jpg`)} 
-                    alt={`../img/concert${props.num+1}.jpg`}/>
+                    alt={`../img/concert${props.num+1}.jpg`}
+                    style={{width:"100%"}}
+                    />
             </div>
-            <h4 id="concert-content-title">{props.concert.title}</h4>
+            <h5 id="concert-content-title">{props.concert.title}</h5>
             <p id="concert-content-day">{props.concert.day}</p>
         </div>
     </>);

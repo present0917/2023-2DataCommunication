@@ -28,16 +28,17 @@ function ControlledCarousel() {
   };
 
   return (
-    <CarouselDiv>
-      <Carousel activeIndex={index} onSelect={handleSelect}>
+    
+      <Carousel activeIndex={index} onSelect={handleSelect} style={{height:"100%"}} >
         {concerts.map((concert) => (
-          <Carousel.Item key={concert.id} interval={10000}>
+          <Carousel.Item key={concert.id} interval={10000} style={{height:"100%"}}>
             <img
               className="d-block w-100"
               src={require(`../img/concert${concert.id+1}carousal.jfif`)}
               alt={`img${concert.id+1}`}
+              style={{}}
             />  
-            <Carousel.Caption>
+            <Carousel.Caption style={{}}>
               <h3 style={{textShadow:"-1px 0 #080808, 0 1px #080808, 1px 0 #080808, 0 -1px #080808"}}>{concert.title}</h3>
               <p style={{textShadow:"-1px 0 #080808, 0 1px #080808, 1px 0 #080808, 0 -1px #080808"}}>기간: {concert.day}</p>
               <CarouselButton data={concert} />
@@ -45,7 +46,7 @@ function ControlledCarousel() {
           </Carousel.Item>
         ))}
       </Carousel>
-    </CarouselDiv>
+    
   );
 }
 
