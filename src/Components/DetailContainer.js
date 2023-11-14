@@ -21,6 +21,15 @@ const DetailContainer=(props)=>{
                     runningTime={concert.runningTime}
                     castMember={concert.castMember}
                 />
+                
+                {
+                /*연동시
+                 <DetailContent 
+                    id={concert.id}
+                    rate={concert.rate}
+                    runningTime={concert.runningTime}
+                    castMember={concert.place}
+                /> */}
             </div>
         </>
     )

@@ -35,9 +35,9 @@ export default Detail;
 // function Detail()
 // {
 //     const params = useParams();
-//     
-//    
-//     
+    
+   
+    
 //     const [pathTo, setPathTo] = useState("");
 
 //     const [concert,setconcert]=useState("");
@@ -56,8 +56,9 @@ export default Detail;
 
 //         useEffect(() => {
 //             if (concert) {
+//                 console.log(concert)
 //                 console.log(concert.title);
-//                 console.log(concert.date);
+//                 console.log(concert.day);
 //                 console.log(concert.place);
 //             }
 //         }, [concert]);
@@ -66,10 +67,10 @@ export default Detail;
 //     return(
 
 //         <>
-//             
-//             
+            
+            
 
-//             <DetailTitle title={concert.title} day={concert.date}/>
+//             <DetailTitle title={concert.title} day={concert.day}/>
 //             <DetailContainer concert={concert}/>
 
 //             <Button variant="secondary" as={Link} to={pathTo}>예매하기 &raquo;</Button>
