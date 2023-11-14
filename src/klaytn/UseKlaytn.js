@@ -1,18 +1,9 @@
 import axios from "axios";
-import { Buffer } from "buffer";
 import GetAcount from "./GetAcount";
 
-const { klaytn } = window;
-
 async function MetaData(tilte, position, imgURI) {
-  return new Promise((resolve, reject) => {
-    const params = {
-      key: process.env.REACT_APP_ACCESSKEY_ID,
-      password: process.env.REACT_APP_SECRET_ACCESSKEY,
-    };
-    const base64Credentials = Buffer.from(
-      `${params.key}:${params.password}`
-    ).toString("base64");
+  return new Promise((resolve, rejects) => {
+    const Credentials = process.env.REACT_APP_KLAYTN_BASE_KEY;
 
     const data = JSON.stringify({
       metadata: {
@@ -24,8 +15,8 @@ async function MetaData(tilte, position, imgURI) {
     axios
       .post("https://metadata-api.klaytnapi.com/v1/metadata", data, {
         headers: {
-          "x-chain-id": "8217",
-          Authorization: `Basic ${base64Credentials}`,
+          "x-chain-id": "1001",
+          Authorization: `Basic ${Credentials}`,
           "Content-Type": "application/json",
         },
       })
@@ -35,54 +26,87 @@ async function MetaData(tilte, position, imgURI) {
       })
       .catch((error) => {
         console.log(error);
-        throw new Error("fail to get metadata uri");
+        rejects("fail to get metadata uri");
       });
   });
 }
 
+//
 async function Mint(tilte, position, imgURI) {
-  //.env에서 accesskey와 secretKey를 받아서 base64로 인코딩
-  const params = {
-    key: process.env.REACT_APP_ACCESSKEY_ID,
-    password: process.env.REACT_APP_SECRET_ACCESSKEY,
-  };
-  const base64Credentials = Buffer.from(
-    `${params.key}:${params.password}`
-  ).toString("base64");
+  const owner = await GetAcount();
+  const jsonURI = await MetaData(tilte, position, imgURI);
+  return new Promise((resolve, rejects) => {
+    const Credentials = process.env.REACT_APP_KLAYTN_BASE_KEY;
+    //카이카스 지갑 조회
 
-  //카이카스 계정을 account로 받아옴
-  try {
-    const owner = await GetAcount();
     console.log(owner);
 
     // 메타데이터 URI를 jsonURI로 받아옴
-    const jsonURI = await MetaData(tilte, position, imgURI);
 
-    const id = "0x1a7"; //테스트값 ,서버에서 토큰아이디를 중복되지 않게 받아와야됨
+    //토큰아이디 조회 요청 추가필요;
+    const id = "0x0";
 
+    //컨트랙트 alias 조회 과정 추가필요
+    const alias = process.env.REACT_APP_CONTRACT_ALIAS;
     const data = {
       to: `${owner[0]}`,
       id: `${id}`,
       uri: jsonURI,
     };
-    //컨트랙트 alias 조회 과정 필요한지 검토(지금은 test)
+
     axios
-      .post("https://kip17-api.klaytnapi.com/v2/contract/test/token", data, {
-        headers: {
-          "x-chain-id": "1001",
-          Authorization: `Basic ${base64Credentials}`,
-          "Content-Type": "application/json",
-        },
-      })
+      .post(
+        `https://kip17-api.klaytnapi.com/v2/contract/${alias}}/token`,
+        data,
+        {
+          headers: {
+            "x-chain-id": "1001",
+            Authorization: `Basic ${Credentials}`,
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then((response) => {
         console.log(JSON.stringify(response.data));
+        resolve(true);
       })
       .catch((error) => {
         console.log(error);
+        rejects("민팅 실패");
       });
-  } catch (e) {
-    alert(e);
-  }
+  });
+}
+async function checkNFT(token) {
+  const owner = await GetAcount();
+  return new Promise((resolve, rejects) => {
+    const alias = process.env.REACT_APP_CONTRACT_ALIAS;
+    const apiUrl = `https://kip17-api.klaytnapi.com/v2/contract/${alias}/token/${token}/history`;
+    const Credentials = process.env.REACT_APP_KLAYTN_BASE_KEY;
+
+    const headers = {
+      Authorization: `Basic ${Credentials}`,
+      "x-chain-id": "1001",
+    };
+
+    axios
+      .get(apiUrl, { headers })
+      .then((response) => {
+        console.log("Response:", response.data);
+        if (
+          response.data.items.from ==
+            "0x0000000000000000000000000000000000000000" &&
+          response.data.items.to == owner[0]
+        ) {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+      })
+      .catch((error) => {
+        console.log("Error:", error);
+        rejects("토큰 조회 실패");
+      });
+  });
 }
 
-export default Mint;
+export default { Mint, checkNFT };
