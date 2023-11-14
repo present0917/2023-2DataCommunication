@@ -76,7 +76,7 @@
 }
 .selected-day:hover {
   border-radius: 50%;
-  background-color: #c27101;
+  background-color: orange;
 }
 .unseleceted-day:hover {
   border-radius: 50%;

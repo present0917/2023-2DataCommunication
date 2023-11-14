@@ -38,8 +38,8 @@ function ControlledCarousel() {
               alt={`img${concert.id+1}`}
             />  
             <Carousel.Caption>
-              <h3>{concert.title}</h3>
-              <p>기간: {concert.day}</p>
+              <h3 style={{textShadow:"-1px 0 #080808, 0 1px #080808, 1px 0 #080808, 0 -1px #080808"}}>{concert.title}</h3>
+              <p style={{textShadow:"-1px 0 #080808, 0 1px #080808, 1px 0 #080808, 0 -1px #080808"}}>기간: {concert.day}</p>
               <CarouselButton data={concert} />
             </Carousel.Caption>
           </Carousel.Item>
