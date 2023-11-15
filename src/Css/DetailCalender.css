@@ -119,3 +119,41 @@
   border-radius: 50%;
   background-color: #c27101;
 }
+
+.date-pick-container {
+  display: flex;
+  margin-top: 2rem;
+  justify-content: space-evenly;
+}
+.right-pick-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 2rem;
+  margin-top: -0.5rem;
+}
+.right-pick-container-text,
+.right-pick-container-text-selected {
+  font-family: "SUITE-Variable";
+  font-size: 1.5rem;
+  border: 1px solid #aeaeae;
+  margin: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.right-pick-container-text-selected {
+  border: 1px solid #c27101;
+  color: white;
+  background-color: #c27101;
+}
+.right-content-down-container {
+  display: flex;
+  flex-direction: column;
+}
+#reservation-button {
+  font-size: 2.5rem;
+  margin: 4rem;
+  margin-top: 1rem;
+}
