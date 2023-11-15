@@ -1,18 +1,21 @@
 import { useEffect } from "react";
 const {kakao}=window;
-function MapTest(){
-useEffect(()=>{
+function MapTest(props){
+useEffect((props)=>{
     const container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
     const options = { //지도를 생성할 때 필요한 기본 옵션
         center: new kakao.maps.LatLng(0,0), //지도의 중심좌표.
         level: 3 //지도의 레벨(확대, 축소 정도)
     };
-
+    console.log(props)
     const map = new kakao.maps.Map(container, options);
 
      const geocoder = new kakao.maps.services.Geocoder();
  
-    geocoder.addressSearch('서울특별시 광진구 능동로 209', function(result, status) {
+    geocoder.addressSearch('서울특별시 송파구 올림픽로 424', function(result, status) {
+
+    //연동시
+    // geocoder.addressSearch(`${props.hallAddress}`, function(result, status) {
 
         // 정상적으로 검색이 완료됐으면 
          if (status === kakao.maps.services.Status.OK) {

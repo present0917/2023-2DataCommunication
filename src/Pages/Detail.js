@@ -6,7 +6,7 @@ import DetailTitle from "../Components/DetailTitle";
 import DetailContainer from "../Components/DetailContainer";
 import { useState,useEffect } from "react";
 import axios from "axios";
-
+import MapTest from "./MapTest";
 
 function Detail()
 {
@@ -58,7 +58,6 @@ export default Detail;
 //                 console.log(concert)
 //                 console.log(concert.title);
 //                 console.log(concert.day);
-//                 console.log(concert.place);
 //             }
 //         }, [concert]);
 
@@ -68,11 +67,16 @@ export default Detail;
 //         <>
             
             
+            
+//             {concert &&
+//             <DetailTitle title={concert.title} day={concert.day} />}
+//             {concert &&<DetailContainer concert={concert}/>}
 
-//             <DetailTitle title={concert.title} day={concert.day}/>
-//             <DetailContainer concert={concert}/>
-
-//             <Button variant="secondary" as={Link} to={pathTo}>예매하기 &raquo;</Button>
+//             {/* {concert &&<Button variant="secondary" as={Link} to={pathTo}>예매하기 &raquo;</Button>} */}
+// <div style={{ display:"inline-block"}}>
+//             {concert &&<MapTest address={concert.hallAddress}  ></MapTest>}
+//             </div>
+            
 //         </>
 //     )
 // }
