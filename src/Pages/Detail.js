@@ -23,7 +23,6 @@ function Detail()
             <DetailContainer concert={concert}/>
 
             
-            <Button variant="secondary" as={Link} to={pathTo}>예매하기 &raquo;</Button>
         </>
     )
 }
