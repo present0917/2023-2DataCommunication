@@ -12,11 +12,13 @@ import Home from './Pages/Home';
 import TestPage from './Pages/TestPage';
 import WritePostPage from './Pages/WritePostPage';
 import ReservationPage from './Pages/ReservationPage';
+import { useEffect } from 'react';
 
 import Detail from './Pages/Detail';
 import TestCaver from './testcaver';
 import ReservationPageNet from './Pages/ReservationPageNet';
 import MapTest from './Pages/MapTest';
+import Forcheck from './Pages/ForCheck';
 
 library.add(fas)
 
@@ -25,7 +27,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      // element: </>,
+      //element: <Forcheck/>,
       errorElement: <Error />,
       children: [
         {
