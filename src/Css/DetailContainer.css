@@ -9,6 +9,9 @@
   float: left;
 }
 
+.left-content-box-image {
+}
+
 .right-content-box {
   margin-left: 3rem;
   margin-right: 6.3rem;
@@ -19,8 +22,8 @@
 }
 
 .right-content-text-box * {
-  line-height: 45px;
-  font-size: 20px;
+  line-height: 2.5rem;
+  font-size: 1.25rem;
 }
 
 .right-ul-list {
@@ -36,13 +39,13 @@
 .content-def-long {
   color: #333;
   font-weight: bold;
-  padding-right: 50px;
+  padding-right: 3.125rem;
 }
 
 .content-def-short {
   color: #333;
   font-weight: bold;
-  padding-right: 50px;
+  padding-right: 3.125rem;
   margin-right: 2.1rem;
 }
 

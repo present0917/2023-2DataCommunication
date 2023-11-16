@@ -9,7 +9,7 @@ const DetailContainer=(props)=>{
         <>
             <div className="detail-container-box">
                 <div className="left-content-box">
-                    <img
+                    <img className="left-content-box-image"
                         src={require(`../img/concert${concert.id+1}.jpg`)}
                         alt={"bug"}
                     />
