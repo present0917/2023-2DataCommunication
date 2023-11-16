@@ -1,7 +1,6 @@
-import Caver from "caver-js";
 import { useEffect, useState } from "react";
 import GetAcount from "./klaytn/GetAcount";
-import Mint from "./klaytn/UseKlaytn";
+import { Mint } from "./klaytn/UseKlaytn";
 
 function TestCaver() {
   const styles = {
@@ -13,7 +12,6 @@ function TestCaver() {
     "https://metadata-store.klaytnapi.com/c111da93-ef33-87db-0db4-97b3bde8a54b/3c2a845e-c169-d14a-59e5-1b2c1b46d44f.jpg";
 
   const { klaytn } = window;
-  const caver = new Caver(klaytn);
   const [account, setAccount] = useState("");
 
   useEffect(() => {

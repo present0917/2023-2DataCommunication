@@ -76,21 +76,22 @@ async function GetAcount() {
     if (account !== -1) {
       return account;
     } else {
-      throw new Error("fail to get account at chrome");
+      console.log("fail to get account at chrome");
+      return -1;
     }
   } else if (browser === "Mobile") {
     try {
       const account = GetAcountMobile();
       return account;
     } catch (e) {
-      console.log(e);
-      throw new Error("fail to get account at moblie");
+      console.log("fail to get account at moblie");
+      return -1;
     }
   } else {
     alert(
       "해당 기능은 Chrome 환경에서만 작동합니다. Chrome 브라우저를 사용해서 다시 시도해주세요."
     );
-    throw new Error("not Chrome browser");
+    return -2;
   }
 }
 
