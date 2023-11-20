@@ -1,0 +1,125 @@
+.payment-box {
+  margin-top: 3rem;
+}
+
+.check-img {
+  width: 8rem;
+  height: auto;
+}
+.payment-alert-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.alert-say-thx {
+  font-family: "SUITE-Variable";
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+.alert-pay-done {
+  font-family: "SUITE-Variable";
+  font-size: 2rem;
+}
+
+.payment-summary {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.payment-summary > * {
+  margin-left: 10rem;
+  margin-right: 10rem;
+  font-size: 1.2rem;
+}
+.payment-little-title {
+  text-align: start;
+  margin-top: 1rem;
+  margin-left: 10rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 1rem;
+}
+.payment-table-body {
+  display: flex;
+  flex-direction: column;
+}
+.payment-content-1,
+.payment-content-2 {
+  display: flex;
+}
+.payment-content-1 {
+  border: 1px solid #dddddd;
+}
+.payment-content-2 {
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  background-color: #cccccc;
+}
+.payment-table-content-left {
+  flex: 20%;
+  border-right: 1px solid #dddddd;
+  padding: 2rem;
+}
+.payment-table-content-right {
+  flex: 80%;
+  display: flex;
+  justify-content: left;
+  padding: 2rem;
+}
+
+.payment-button {
+  display: flex;
+  justify-content: center;
+}
+#payment-button-two {
+  font-size: 2.5rem;
+  margin: 1.5rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+/* .payment-table-body {
+  display: flex;
+  justify-content: left;
+  border: 1px solid black;
+}
+.payment-table-left {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex: 20%;
+}
+.payment-table-left-odd,
+.payment-table-left-even {
+  padding: 2rem;
+  padding-right: 4rem;
+  border-right: 1px solid black;
+}
+.payment-table-left-even {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  background-color: #dddddd;
+}
+.payment-table-right {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex: 80%;
+}
+.payment-table-right-odd,
+.payment-table-right-even {
+  padding: 2rem;
+}
+.payment-table-right-even {
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  background-color: #dddddd;
+}
+.ao {
+  position: relative;
+  left: 1rem;
+}
+.ab {
+  position: relative;
+  right: 10rem;
+}
+ */
