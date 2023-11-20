@@ -1,20 +1,25 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom"
+import { useLocation, useParams } from "react-router-dom"
 import DetailTitle from "../Components/DetailTitle";
 import ConcertData from "../Components/ConcertData";
 import PaymentContainer from "../Components/PaymentContainer";
 
-const Payment=()=>{
+const Payment=(props)=>{
+    const location=useLocation();
+    const {state}=location;
+    const {id,selectedDate,selectedSeats}=state;
 
-    const params = useParams();
-    const concert=ConcertData.find(datas => datas.id==params.id);
-    console.log(concert);
-    const pathTo=`/res/${concert.id}`
+    const concert=ConcertData.find(datas => datas.id==id);
+
 
     return (
         <>
             <DetailTitle title={concert.title} day={concert.day}/>
-            <PaymentContainer/>
+            <PaymentContainer 
+                id={id}
+                selectedDate={selectedDate}
+                selectedSeats={selectedSeats}
+            />
         </>
     )
 

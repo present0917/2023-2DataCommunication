@@ -2,9 +2,13 @@ import React from "react";
 import "../Css/PaymentContainer.css";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import ConcertData from "./ConcertData";
 
-const PaymentSummary=()=>{
-    
+const PaymentSummary=(props)=>{
+    const {id,selectedDate,selectedSeats}=props;
+
+    const concert=ConcertData.find(datas=>datas.id==id);
+
     return (
         <>
             <div className="payment-summary">
@@ -53,7 +57,7 @@ const PaymentSummary=()=>{
                                 </div>
                                 <div className="payment-table-content-right">
                                     <span>
-                                        컴프롬 어웨이
+                                        {concert.title}
                                     </span>
                                 </div>
                             </div>
@@ -65,7 +69,7 @@ const PaymentSummary=()=>{
                                 </div>
                                 <div className="payment-table-content-right">
                                     <span>
-                                        A01
+                                    {selectedSeats.map(seat => `${seat.col}열 ${seat.row}번`).join(', ')}
                                     </span>
                                 </div>
                             </div>
@@ -77,7 +81,7 @@ const PaymentSummary=()=>{
                                 </div>
                                 <div className="payment-table-content-right">
                                     <span>
-                                        2023-14-15, 16:17
+                                        {selectedDate.toLocaleString()}
                                     </span>
                                 </div>
                             </div>

@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "../Css/PaymentContainer.css";
 import PaymentSummary from "./PaymentSummary";
 
-const PaymentContainer=()=>{
+const PaymentContainer=(props)=>{
+    const {id,selectedDate,selectedSeats}=props;
 
     const [checkImg,setCheckImg]=useState('v');
 
@@ -21,7 +22,11 @@ const PaymentContainer=()=>{
                         결제가 완료되었습니다.
                     </span>
                 </p>
-                <PaymentSummary/>
+                <PaymentSummary 
+                    id={id}
+                    selectedDate={selectedDate}
+                    selectedSeats={selectedSeats}
+                />
             </div>
             
         </>

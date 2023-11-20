@@ -39,8 +39,8 @@ const DetailCalender = (props) => {
 
   const handleReservation = (selectedDate) => {
     if (selectedDate&&selectedTimeOfConcert) {
-      navigate(`../res/${id}`,{state:{id,selectedDate}});
       console.log(`${id}, ${selectedDate}`);
+      navigate(`../res/${id}`,{state:{id,selectedDate}});
     } else {
       alert('날짜와 시간을 선택하세요.');
     }

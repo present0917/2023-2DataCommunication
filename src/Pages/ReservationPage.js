@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Seatdata from "./Seatdata";
 import styled from 'styled-components';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Cont = styled.div`
     margin: 0 auto;
@@ -18,8 +19,12 @@ const Seat = styled.button`
     width:50px;
 `;
 
-const ReservationPage = ({  }) => {
+const ReservationPage = ({ }) => {
   const [selectedSeats, setSelectedSeats] = useState([]);
+  const location=useLocation();
+  const {state}=location;
+  const {id,selectedDate}=state;
+  const navigate=useNavigate();
 
   const handleSeatClick = (row, col) => {
     const seat = { row, col };
@@ -45,6 +50,7 @@ const cols = Array.from(new Set(Seatdata.map(seat => seat.col)));
 
 const request = ()=>{
   console.log(selectedSeats);
+  navigate(`/payment/${id}`,{state:{id,selectedDate,selectedSeats}});
 }
 
   return (
