@@ -19,6 +19,7 @@ import TestCaver from './testcaver';
 import ReservationPageNet from './Pages/ReservationPageNet';
 import MapTest from './Pages/MapTest';
 import Forcheck from './Pages/ForCheck';
+import Payment from './Pages/Payment';
 
 library.add(fas)
 
@@ -44,6 +45,7 @@ function App() {
             { path: "/testcaver", element: <TestCaver/>},
             { path: "/testseat/:id", element: <ReservationPageNet/>},
             { path: "/maptest", element: <MapTest/>},
+            { path: "/payment/:id", element: <Payment/>},
           ],
         },
       ],
