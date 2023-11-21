@@ -21,6 +21,7 @@ import MapTest from './Pages/MapTest';
 import Forcheck from './Pages/ForCheck';
 import Payment from './Pages/Payment';
 
+
 library.add(fas)
 
 
@@ -28,7 +29,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      //element: <Forcheck/>,
+      //element: </>,
       errorElement: <Error />,
       children: [
         {
@@ -41,11 +42,13 @@ function App() {
 
             { path: "/test", element: <TestPage /> },
             { path: "/write", element: <WritePostPage/>},
+            // { path: "/res/:id", element: <ReservationPage/>},
             { path: "/res/:id", element: <ReservationPage/>},
             { path: "/testcaver", element: <TestCaver/>},
             { path: "/testseat/:id", element: <ReservationPageNet/>},
             { path: "/maptest", element: <MapTest/>},
             { path: "/payment/:id", element: <Payment/>},
+
           ],
         },
       ],

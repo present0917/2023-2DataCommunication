@@ -1,10 +1,10 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Seatdata from "./Seatdata";
 import styled from 'styled-components';
 import { useLocation, useNavigate } from 'react-router-dom';
-
+import TestCheck from './TestCheckForRoute';
 const Cont = styled.div`
     margin: 0 auto;
     height:500px;
@@ -25,6 +25,30 @@ const ReservationPage = ({ }) => {
   const {state}=location;
   const {id,selectedDate}=state;
   const navigate=useNavigate();
+
+  const [check, setCheck] = useState(0);
+
+  useEffect(()=>{
+      console.log("라우팅테스트")
+      TestCheck()
+      .then((result) => {
+        console.log("Result:", result);
+        if(result>0)
+        {
+          console.log('ok');
+        }
+        else
+        {
+          alert("로그인");
+          navigate(`/`);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+      
+    },[])
+
 
   const handleSeatClick = (row, col) => {
     const seat = { row, col };
