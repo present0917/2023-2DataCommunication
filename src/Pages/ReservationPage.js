@@ -5,6 +5,10 @@ import Seatdata from "./Seatdata";
 import styled from 'styled-components';
 import { useLocation, useNavigate } from 'react-router-dom';
 import TestCheck from './TestCheckForRoute';
+import Detail from './Detail';
+import ConcertData from '../Components/ConcertData';
+import DetailTitle from '../Components/DetailTitle';
+
 const Cont = styled.div`
     margin: 0 auto;
     height:500px;
@@ -23,9 +27,10 @@ const ReservationPage = ({ }) => {
   const [selectedSeats, setSelectedSeats] = useState([]);
   const location=useLocation();
   const {state}=location;
-  const {id,selectedDate}=state;
+  const {id,sendDateInfo}=state;
   const navigate=useNavigate();
-
+  const concert=ConcertData.find(datas => datas.id==id);
+  
   const [check, setCheck] = useState(0);
 
   useEffect(()=>{
@@ -73,8 +78,13 @@ const rows = Array.from(new Set(Seatdata.map(seat => seat.row)));
 const cols = Array.from(new Set(Seatdata.map(seat => seat.col)));
 
 const request = ()=>{
-  console.log(selectedSeats);
-  navigate(`/payment/${id}`,{state:{id,selectedDate,selectedSeats}});
+  if(selectedSeats.length <=0){
+    alert('좌석을 선택해주세요.');
+  }else{
+    console.log(selectedSeats);
+    const currentDate=new Date();
+    navigate(`/payment/${id}`,{state:{id,sendDateInfo,currentDate,selectedSeats}});
+  }
 }
 
   return (
