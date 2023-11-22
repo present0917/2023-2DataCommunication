@@ -1,11 +1,9 @@
 .concert-content {
   margin: 10px;
- 
 }
 
 .concert-img {
   transition: all ease 0.2s;
-  
 }
 
 .concert-img:hover {
@@ -13,7 +11,9 @@
 }
 
 #concert-content-title {
+  margin-top: 1rem;
   padding-top: 1rem;
+  font-size: 1.5rem;
 }
 
 #concert-content-day {

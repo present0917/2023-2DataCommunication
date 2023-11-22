@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import "../Css/PaymentContainer.css";
 import PaymentSummary from "./PaymentSummary";
+import { useLocation } from "react-router-dom";
 
-const PaymentContainer=(props)=>{
-    const {id,selectedDate,selectedSeats}=props;
+const PaymentContainer=()=>{
+    const location=useLocation();
+    const {state}=location;
+    const {id,sendDateInfo,currentDate,selectedSeats}=state;
 
     const [checkImg,setCheckImg]=useState('v');
 
@@ -24,7 +27,8 @@ const PaymentContainer=(props)=>{
                 </p>
                 <PaymentSummary 
                     id={id}
-                    selectedDate={selectedDate}
+                    sendDateInfo={sendDateInfo}
+                    currentDate={currentDate}
                     selectedSeats={selectedSeats}
                 />
             </div>

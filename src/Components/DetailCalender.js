@@ -4,49 +4,51 @@ import { ko } from 'date-fns/locale';
 import 'react-datepicker/dist/react-datepicker.css';
 import styled from 'styled-components';
 import '../Css/DetailCalender.css';
-import TimeSlotData from './TimeSlotData';
 import { useNavigate } from 'react-router-dom';
-import { getYear } from 'date-fns';
+import { getYear, isSameDay } from 'date-fns';
 import range from "lodash/range";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from 'react-bootstrap/Button';
 
 const DetailCalender = (props) => {
   const [startDate, setStartDate] = useState(new Date());
-  const years = range(1990, getYear(new Date()) + 1, 1);
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [timeSlots,setTimeSlots]=useState(TimeSlotData);
   const [selectedTimeOfConcert,setSelectedTimeOfConcert]=useState(false);
-
+  const [todayIsOk,setTodayIsOk]=useState(false);
+  
   const id=props.id;
 
   const navigate=useNavigate();
 
+  const checkDate=(selectedDate)=>{
+    const checkToday=new Date(selectedDate.getFullYear(),selectedDate.getMonth(),selectedDate.getDate(),19,30); 
+    return checkToday.getTime()-selectedDate.getTime()>0;
+  }
+
   const handleReservation = (selectedDate) => {
-    if (selectedDate&&selectedTimeOfConcert) {
-      console.log(`${id}, ${selectedDate}`);
-      navigate(`../res/${id}`,{state:{id,selectedDate}});
+    const isOkToday=checkDate(selectedDate);
+    setTodayIsOk(isOkToday);
+    if (selectedDate&&selectedTimeOfConcert&&todayIsOk) {
+       // 포맷 옵션 설정
+       const options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
+      
+      // 날짜를 원하는 형식으로 포맷
+      const sendDateInfo = selectedDate.toLocaleString('ko-KR', options)+" 오후 7:30";
+      console.log(`${id},${sendDateInfo}`);
+      navigate(`../res/${id}`,{state:{id,sendDateInfo}});
     } else {
       alert('날짜와 시간을 선택하세요.');
     }
   };
   
-
+  useEffect(() => {
+    // 컴포넌트가 처음 마운트될 때만 실행
+    const isTodayOk = checkDate(startDate);
+    setTodayIsOk(isTodayOk);
+  }, []); // 빈 배열을 의존성 배열로 전달하여 초기 렌더링 시에만 실행
   
   useEffect(()=>{
     console.log(startDate);

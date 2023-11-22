@@ -5,9 +5,19 @@ import { Link } from "react-router-dom";
 import ConcertData from "./ConcertData";
 
 const PaymentSummary=(props)=>{
-    const {id,selectedDate,selectedSeats}=props;
+    const {id,sendDateInfo,currentDate,selectedSeats}=props;
 
     const concert=ConcertData.find(datas=>datas.id==id);
+    
+    const formattedDate = new Intl.DateTimeFormat('ko-KR', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true,
+      }).format(currentDate);
+      
 
     return (
         <>
@@ -81,7 +91,19 @@ const PaymentSummary=(props)=>{
                                 </div>
                                 <div className="payment-table-content-right">
                                     <span>
-                                        {selectedDate.toLocaleString()}
+                                        {formattedDate}
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="payment-content-2">
+                                 <div className="payment-table-content-left">
+                                    <span>
+                                        콘서트 시간
+                                    </span>
+                                </div>
+                                <div className="payment-table-content-right">
+                                    <span>
+                                    {sendDateInfo}
                                     </span>
                                 </div>
                             </div>
@@ -90,7 +112,7 @@ const PaymentSummary=(props)=>{
             </div>
             <div className="payment-button">
                 <Button as={Link} to='/' variant="danger" size="lg" id="payment-button-two">홈 페 이 지 로</Button>
-                <Button as={Link} to='test' variant="secondary" size="lg" id="payment-button-two">마 이 페 이 지</Button>
+                <Button as={Link} to='/test' variant="secondary" size="lg" id="payment-button-two">마 이 페 이 지</Button>
             </div>
         </>
     )
