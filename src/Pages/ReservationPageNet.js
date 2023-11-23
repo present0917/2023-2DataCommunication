@@ -76,9 +76,9 @@ const request = ()=>{
 
     <Cont>
   <h1>좌석 예약</h1>
-  {rows.map(row => (
+  {cols.map(col => (
     <div >
-      {cols.map(col => {
+      {rows.map(row => {
         const seatInfo = seats.find(seat => seat.row === row && seat.col === col);
         const isSelected = selectedSeats.some(
           selectedSeat => selectedSeat.row === row && selectedSeat.col === col
