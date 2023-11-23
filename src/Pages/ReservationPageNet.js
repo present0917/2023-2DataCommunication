@@ -26,7 +26,7 @@ const ReservationPageNet = ({  }) => {
             axios.get(`http://localhost:8080/concert/detail/${params.id}/book`)
             .then((response)=>{
                 setSeats(response.data);
-            })
+            })  
             .catch((error)=>console.log(error))
 
         }
@@ -47,7 +47,7 @@ const ReservationPageNet = ({  }) => {
 
 
   const handleSeatClick = (row, col) => {
-    const seat = { row, col };
+    const seat = { row, col, };
     const isSelected = selectedSeats.some(
       (selectedSeat) => selectedSeat.row === row && selectedSeat.col === col
     );
@@ -69,6 +69,15 @@ const ReservationPageNet = ({  }) => {
 
 const request = ()=>{
   console.log(selectedSeats);
+    axios.post(`http://localhost:8080/concert/detail/${params.id}/book`, selectedSeats)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+
 }
 
   return (
@@ -88,7 +97,7 @@ const request = ()=>{
             className={`seat ${isSelected ? 'selected' : ''}`}
             onClick={() => handleSeatClick(row, col)}
             key={`seat-${row}-${col}`}
-            disabled={seatInfo.data ? true : false}
+            disabled={seatInfo.isBooked ? true : false}
           >
             {seatInfo ? `${seatInfo.col+seatInfo.row}` : ''}
             
