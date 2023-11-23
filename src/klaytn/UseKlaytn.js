@@ -32,13 +32,12 @@ async function MetaData(tilte, position, imgURI) {
 }
 
 //
-async function Mint(tilte, position, imgURI) {
-  const owner = await GetAcount();
+async function Mint(tilte, position, imgURI, owner) {
   const jsonURI = await MetaData(tilte, position, imgURI);
   return new Promise((resolve, rejects) => {
     const Credentials = process.env.REACT_APP_KLAYTN_BASE_KEY;
 
-    if (owner === -1 || jsonURI === -1) {
+    if (jsonURI === -1) {
       rejects("데이터 로드 실패");
     }
 
@@ -49,7 +48,7 @@ async function Mint(tilte, position, imgURI) {
     const alias = process.env.REACT_APP_CONTRACT_ALIAS;
 
     const requestData = {
-      to: owner[0],
+      to: owner,
       id: id,
       uri: jsonURI,
     };
@@ -74,7 +73,6 @@ async function Mint(tilte, position, imgURI) {
   });
 }
 async function checkNFT(token) {
-  const owner = await GetAcount();
   return new Promise((resolve, rejects) => {
     const alias = process.env.REACT_APP_CONTRACT_ALIAS;
     const apiUrl = `https://kip17-api.klaytnapi.com/v2/contract/${alias}/token/${token}`;
