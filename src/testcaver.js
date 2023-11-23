@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import GetAcount from "./klaytn/GetAcount";
-import { Mint } from "./klaytn/UseKlaytn";
+import { Mint, searchNFT } from "./klaytn/UseKlaytn";
 
 function TestCaver() {
   const styles = {
@@ -14,6 +14,14 @@ function TestCaver() {
   const { klaytn } = window;
   const [account, setAccount] = useState("");
 
+  const test=()=>{
+    searchNFT()
+    .then((response)=>{
+      console.log(response)
+   }
+   )
+   .catch((error)=>console.log(error))
+  }
   useEffect(() => {
     if (account == "") {
       GetAcount()
@@ -34,6 +42,9 @@ function TestCaver() {
       <br />
       <button onClick={() => Mint("COME FROM AWAY", "A16", testimg)}>
         test
+      </button>
+      <button onClick={()=>test()}>
+        searnft
       </button>
     </>
   );
