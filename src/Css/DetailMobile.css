@@ -1,0 +1,36 @@
+.mobile-container {
+  font-family: "SUITE-Variable";
+}
+.mobile-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  display: flex;
+  justify-content: flex-start;
+}
+.mobile-duration {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 1rem;
+  color: #868e96;
+}
+.mobile-hora {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.mobile-image {
+  justify-content: center;
+}
+.mobile-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#mobile-button-two {
+  font-size: 2rem;
+  margin: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}

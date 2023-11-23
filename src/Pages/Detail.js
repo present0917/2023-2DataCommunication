@@ -7,6 +7,7 @@ import DetailContainer from "../Components/DetailContainer";
 import { useState,useEffect } from "react";
 import axios from "axios";
 import MapTest from "./MapTest";
+import DetailMobile from "../Components/DetailMobile";
 
 function Detail()
 {
@@ -15,12 +16,24 @@ function Detail()
     console.log(concert);
     const pathTo=`/res/${concert.id}`
 
+    const [mobile, setMobile] = useState();
+    useEffect(() => {
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (isMobile) {
+          // mobile
+          setMobile(true);
+        } else {
+          // desktop
+          setMobile(false);
+        }
+      }, []);
 
     return(
 
         <>
-            <DetailTitle title={concert.title} day={concert.day}/>
-            <DetailContainer concert={concert}/>
+            {!mobile&&<DetailTitle title={concert.title} day={concert.day}/>}
+            {!mobile&&<DetailContainer concert={concert}/>}
+            {mobile&&<DetailMobile concert={concert}/>}
 
             
         </>

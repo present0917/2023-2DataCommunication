@@ -1,0 +1,56 @@
+.payment-mobile-box {
+  font-family: "SUITE-Variable";
+}
+.check-img {
+  width: 6rem;
+}
+.payment-mobile-alert-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.mobile-alert-say-thx {
+  font-size: 1rem;
+  margin-top: -0.5rem;
+}
+.mobile-alert-pay-done {
+  font-size: 1.5rem;
+}
+.payment-mobile-table-body {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dddddd;
+  margin: 1rem;
+}
+.payment-mobile-content-1,
+.payment-mobile-content-2 {
+  display: flex;
+}
+.payment-mobile-content-1 {
+  border: 1px solid #dddddd;
+}
+.payment-mobile-content-2 {
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  background-color: #cccccc;
+}
+.payment-mobile-table-content-left {
+  flex: 35%;
+  border-right: 1px solid #dddddd;
+}
+.payment-mobile-table-content-right {
+  flex: 65%;
+}
+.payment-mobile-little {
+  display: flex;
+  justify-content: left;
+  margin-left: 1rem;
+  margin-bottom: 0;
+  font-weight: 550;
+}
+.mobile-little-hora {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
