@@ -105,15 +105,10 @@ async function checkNFT(token) {
 }
 //소유자 지갑 토큰 조회
 //
-async function searchNFT() {
-  const owner = await GetAcount();
-
+async function searchNFT(owner) {
   return new Promise((resolve, rejects) => {
     const Credentials = process.env.REACT_APP_KLAYTN_BASE_KEY;
 
-    if (owner === -1) {
-      rejects("데이터 로드 실패");
-    }
     const alias = process.env.REACT_APP_CONTRACT_ALIAS;
 
     const headers = {
@@ -124,7 +119,7 @@ async function searchNFT() {
       "https://kip17-api.klaytnapi.com/v2/contract/" +
       alias +
       "/owner/" +
-      owner[0];
+      owner;
 
     axios
       .get(url, { headers })
