@@ -37,26 +37,21 @@ async function Mint(tilte, position, imgURI) {
   const jsonURI = await MetaData(tilte, position, imgURI);
   return new Promise((resolve, rejects) => {
     const Credentials = process.env.REACT_APP_KLAYTN_BASE_KEY;
-    console.log(Credentials);
 
     if (owner === -1 || jsonURI === -1) {
       rejects("데이터 로드 실패");
     }
 
     //토큰아이디 조회 요청 추가필요;
-    const id = "0x1111111111111111110";
+    const id = "0xe0000000000000000000";
 
     //컨트랙트 alias 조회 과정 추가필요
     const alias = process.env.REACT_APP_CONTRACT_ALIAS;
-    const data = JSON.stringify({
-      to: `${owner[0]}`,
-      id: `${id}`,
-      uri: jsonURI,
-    });
+
     const requestData = {
       to: owner[0],
       id: id,
-      uri: "https://metadata-store.klaytnapi.com/2a96a489-defc-dc2b-d4d5-78448eee9755/e2ea9b1a-8ed5-56ec-f080-cf46d0bdf6be.json",
+      uri: jsonURI,
     };
 
     const headers = {
@@ -64,13 +59,10 @@ async function Mint(tilte, position, imgURI) {
       Authorization: "Basic " + Credentials,
       "Content-Type": "application/json",
     };
-    console.log(data);
+    const url =
+      "https://kip17-api.klaytnapi.com/v2/contract/" + alias + "/token";
     axios
-      .post(
-        "https://kip17-api.klaytnapi.com/v2/contract/maintest/token",
-        requestData,
-        { headers }
-      )
+      .post(url, requestData, { headers })
       .then((response) => {
         console.log(JSON.stringify(response.data));
         resolve(true);
@@ -85,7 +77,7 @@ async function checkNFT(token) {
   const owner = await GetAcount();
   return new Promise((resolve, rejects) => {
     const alias = process.env.REACT_APP_CONTRACT_ALIAS;
-    const apiUrl = `https://kip17-api.klaytnapi.com/v2/contract/${alias}/token/${token}/history`;
+    const apiUrl = `https://kip17-api.klaytnapi.com/v2/contract/${alias}/token/${token}`;
     const Credentials = process.env.REACT_APP_KLAYTN_BASE_KEY;
 
     const headers = {
@@ -98,9 +90,9 @@ async function checkNFT(token) {
       .then((response) => {
         console.log("Response:", response.data);
         if (
-          response.data.items.from ==
-            "0x0000000000000000000000000000000000000000" &&
-          response.data.items.to == owner[0]
+          response.data.createdAt == response.data.updatedAt &&
+          response.data.previousOwner ==
+            "0x0000000000000000000000000000000000000000"
         ) {
           resolve(true);
         } else {
@@ -109,9 +101,43 @@ async function checkNFT(token) {
       })
       .catch((error) => {
         console.log("Error:", error);
-        rejects("토큰 조회 실패");
+        rejects("토큰 기록 조회 실패");
+      });
+  });
+}
+//소유자 지갑 토큰 조회
+//
+async function searchNFT() {
+  const owner = await GetAcount();
+
+  return new Promise((resolve, rejects) => {
+    const Credentials = process.env.REACT_APP_KLAYTN_BASE_KEY;
+
+    if (owner === -1) {
+      rejects("데이터 로드 실패");
+    }
+    const alias = process.env.REACT_APP_CONTRACT_ALIAS;
+
+    const headers = {
+      "x-chain-id": "1001",
+      Authorization: "Basic " + Credentials,
+    };
+    const url =
+      "https://kip17-api.klaytnapi.com/v2/contract/" +
+      alias +
+      "/owner/" +
+      owner[0];
+
+    axios
+      .get(url, { headers })
+      .then((response) => {
+        resolve(response.data.items);
+      })
+      .catch((error) => {
+        console.log(error);
+        rejects("지갑 토큰 조회 실패");
       });
   });
 }
 
-export { Mint, checkNFT };
+export { Mint, checkNFT, searchNFT };
