@@ -2,7 +2,7 @@ import React from "react";
 import '../Css/Concert.css';
 
 const Concert=(props)=>{
-    console.log(props);
+
 
     if(!props.concert){
         return <>Error! no Movie</>

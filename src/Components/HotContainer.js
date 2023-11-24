@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 const HotContainer=({list})=>{
     const [concerts,setConcerts]=useState(ConcertData);
-    console.log(list);
+
     useEffect(
         () => {
          

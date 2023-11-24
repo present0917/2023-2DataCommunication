@@ -19,22 +19,25 @@ const CarouselDiv = styled.div`
   }
 `;
 
-function ControlledCarousel() {
+function ControlledCarousel({list}) {
   const [index, setIndex] = useState(0);
   const [concerts, setConcerts] = useState(ConcertData);
 
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
-
+  console.log(list);
   return (
     
       <Carousel activeIndex={index} onSelect={handleSelect} style={{height:"100%"}} >
-        {concerts.map((concert) => (
+        {list.map((concert) => (
           <Carousel.Item key={concert.id} interval={10000} style={{height:"100%"}}>
             <img
               className="d-block w-100"
-              src={require(`../img/concert${concert.id+1}carousal.jfif`)}
+              // 연동전
+              //src={require(`../img/concert${concert.id+1}carousal.jfif`)}
+
+              src={`http://localhost:8080/images/${concert.carouselUrl}`}
               alt={`img${concert.id+1}`}
               style={{}}
             />  
