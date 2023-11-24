@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState,useEffect } from "react";
 import NftCard from "../Components/NftCard";
 import styled from "styled-components";
-
+import QueryNFT from "../Components/QueryNFT";
 
 
 function TestPage()
@@ -70,7 +70,8 @@ border: solid;
 
     return(
         <>
-        <CardsDiv>
+        <QueryNFT/>
+        {/* <CardsDiv>
             {cards.map(cards=>{
                 return (<NftCard data={cards}/>)
             })
@@ -81,7 +82,7 @@ border: solid;
                 return (<NftCard data={cards}/>)
             })
             }   
-        </CardsDiv>
+        </CardsDiv> */}
         </>
     )
 }

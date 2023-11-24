@@ -1,0 +1,61 @@
+.mypage-container {
+  display: flex;
+  flex-direction: column;
+}
+.mypage-title {
+  font-family: "SUITE-Variable";
+  font-size: 3rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  line-height: 2;
+}
+.nft-hora {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.nft-title-nft {
+  color: rgb(150, 41, 41);
+  font-weight: bold;
+  line-height: 0;
+}
+.myaccount {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-right: 0.75rem;
+  margin-bottom: -2rem;
+  padding-bottom: 0;
+}
+.nft-main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.nft-sub-container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.5rem;
+  width: 15rem;
+}
+.nft-img {
+  width: 100%;
+}
+.nft-description {
+  padding-top: 1rem;
+  border: 1px solid black;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+.nft-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.nft-sub-description {
+  padding-bottom: 0.0125rem;
+}

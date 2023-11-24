@@ -42,11 +42,11 @@
   padding-right: 3.125rem;
 }
 
-.content-def-short {
+.content-def {
   color: #333;
   font-weight: bold;
-  padding-right: 3.125rem;
-  margin-right: 2.1rem;
+  text-align: left;
+  width: 7rem;
 }
 
 .detail-content-horz {
