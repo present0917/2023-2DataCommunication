@@ -100,7 +100,7 @@ function Detail() {
 
 
       <div style={{ display: "inline-block" }}>
-        {concert && <MapTest address={concert.hallAddress}  ></MapTest>}
+        {concert && <MapTest concert={concert}  ></MapTest>}
       </div>
 
     </>
