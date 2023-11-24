@@ -4,13 +4,16 @@ import "../Css/DetailContainer.css";
 
 const DetailContainer=(props)=>{
     const concert=props.concert;
+    console.log(concert);
+    
 
     return (
         <>
             <div className="detail-container-box">
                 <div className="left-content-box">
                     <img className="left-content-box-image"
-                        src={require(`../img/concert${concert.id+1}.jpg`)}
+                    //src={require(`../img/concert${concert.id+1}.jpg`)}
+                        src={`http://localhost:8080/images/${concert.thumbnailUrl}`}
                         alt={"bug"}
                     />
                 </div>
@@ -22,14 +25,8 @@ const DetailContainer=(props)=>{
                     castMember={concert.castMember}
                 />
                 
-                {
-                /*연동시
-                 <DetailContent 
-                    id={concert.id}
-                    rate={concert.rate}
-                    runningTime={concert.runningTime}
-                    castMember={concert.place}
-                /> */}
+                
+
             </div>
         </>
     )
