@@ -18,7 +18,6 @@ const Concert=(props)=>{
                     //연동시
                     src={`http://localhost:8080/images/${props.concert.thumbnailUrl}`}
                     
-                    style={{width:"100%"}}
                     />
             </div>
             <h5 id="concert-content-title">{props.concert.title}</h5>
