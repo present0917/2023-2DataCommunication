@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import GetAcount from "./klaytn/GetAccount";
 import { Mint, searchNFT } from "./klaytn/UseKlaytn";
 import LoginModal from "./Modal/LoginModal";
+import GetAccount from "./klaytn/GetAccount";
 
 function TestCaver() {
   const [isOpen, setOpen] = useState(false);
+  const [disabled, setDisabled] = useState(false);
   const styles = {
     weight: "100%",
     height: "46px",
@@ -13,9 +14,6 @@ function TestCaver() {
   const testimg =
     "https://metadata-store.klaytnapi.com/c111da93-ef33-87db-0db4-97b3bde8a54b/3c2a845e-c169-d14a-59e5-1b2c1b46d44f.jpg";
 
-  const { klaytn } = window;
-  const [account, setAccount] = useState("");
-
   const test = () => {
     searchNFT()
       .then((response) => {
@@ -23,7 +21,15 @@ function TestCaver() {
       })
       .catch((error) => console.log(error));
   };
-  async function HandleButton() {}
+  async function handleClick() {
+    setDisabled(true);
+    const account = await GetAccount();
+    if (account !== -1) {
+      console.log();
+      setDisabled(false);
+      setOpen(false);
+    }
+  }
   // useEffect(() => {
   //   if (account == "") {
   //     GetAcount()
@@ -40,13 +46,18 @@ function TestCaver() {
   return (
     <>
       <div style={styles}></div>
-      <div>account = {account}</div>
       <br />
       <button onClick={() => Mint("COME FROM AWAY", "A16", testimg)}>
         test
       </button>
       <button onClick={() => setOpen(true)}>searnft</button>
-      <LoginModal isOpen={isOpen} setIsOpen={setOpen}></LoginModal>
+      <LoginModal
+        isOpen={isOpen}
+        setIsOpen={setOpen}
+        disabled={disabled}
+        setDisabled={setDisabled}
+        handleClick={handleClick}
+      ></LoginModal>
     </>
   );
 }

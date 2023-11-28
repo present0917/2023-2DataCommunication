@@ -1,12 +1,12 @@
 import axios from "axios";
 function CheckBrowser() {
   const userAgent = navigator.userAgent;
-
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(userAgent);
   // 브라우저 판단
-  if (userAgent.indexOf("Chrome") !== -1) {
-    return "Chrome";
-  } else if (userAgent.indexOf("Mobile") !== -1) {
+  if (isMobile) {
     return "Mobile";
+  } else if (userAgent.indexOf("Chrome") !== -1) {
+    return "Chrome";
   } else {
     return "Others";
   }
@@ -15,22 +15,27 @@ function CheckBrowser() {
 //리턴값 [지갑키,체인id] 또는 -1
 async function GetAcountChrome() {
   const { klaytn } = window;
-  const accounts = await klaytn.enable();
-  if (klaytn.networkVersion == 8217 || klaytn.networkVersion == 1001) {
-    return [accounts[0], klaytn.networkVersion];
-  } else if (!klaytn.isKaikas) {
-    const result = window.confirm(
-      "Kaikas 지갑이 설치되어 있지 않습니다. 설치 페이지로 이동하시겠습니까?"
-    );
-    if (result) {
-      window.open(
-        "https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi",
-        "_blank"
-      );
-    } else {
-      alert("Kaikas 지갑이 설치되어 있어야 이용이 가능합니다.");
+  try {
+    const accounts = await klaytn.enable();
+    if (klaytn.networkVersion == 8217 || klaytn.networkVersion == 1001) {
+      return accounts[0];
     }
     return -1;
+  } catch (e) {
+    if (!klaytn.isKaikas) {
+      const result = window.confirm(
+        "Kaikas 지갑이 설치되어 있지 않습니다. 설치 페이지로 이동하시겠습니까?"
+      );
+      if (result) {
+        window.open(
+          "https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi",
+          "_blank"
+        );
+      } else {
+        alert("Kaikas 지갑이 설치되어 있어야 이용이 가능합니다.");
+      }
+      return -1;
+    }
   }
 }
 async function GetAcountMobile() {
@@ -55,7 +60,7 @@ async function GetAcountMobile() {
         // 요청이 성공했을 때의 처리
         console.log("Response:", response.data);
 
-        resolve([response.data.request_key, response.data.chain_id]);
+        resolve(response.data.request_key);
       })
       .catch((error) => {
         // 카이카스 지갑 설치 페이지로 연결 후 리다이렉트
@@ -71,27 +76,32 @@ async function GetAcountMobile() {
 }
 async function GetAccount() {
   const browser = CheckBrowser();
-  if (browser === "Chrome") {
-    const account = GetAcountChrome();
-    if (account !== -1) {
-      return account;
+  try {
+    if (browser === "Chrome") {
+      const account = await GetAcountChrome();
+      try {
+        if (account !== -1) {
+          return account;
+        }
+      } catch (e) {
+        throw new Error("fail to get account at chrome");
+      }
+    } else if (browser === "Mobile") {
+      try {
+        const account = await GetAcountMobile();
+        return account;
+      } catch (e) {
+        throw new Error("fail to get account at moblie");
+      }
     } else {
-      console.log("fail to get account at chrome");
+      alert(
+        "해당 기능은 Chrome 환경에서만 작동합니다. Chrome 브라우저를 사용해서 다시 시도해주세요."
+      );
       return -1;
     }
-  } else if (browser === "Mobile") {
-    try {
-      const account = GetAcountMobile();
-      return account;
-    } catch (e) {
-      console.log("fail to get account at moblie");
-      return -1;
-    }
-  } else {
-    alert(
-      "해당 기능은 Chrome 환경에서만 작동합니다. Chrome 브라우저를 사용해서 다시 시도해주세요."
-    );
-    return -2;
+  } catch (e) {
+    console.log(e);
+    return -1;
   }
 }
 
