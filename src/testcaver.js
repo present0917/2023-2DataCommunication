@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import GetAcount from "./klaytn/GetAcount";
+import GetAcount from "./klaytn/GetAccount";
 import { Mint, searchNFT } from "./klaytn/UseKlaytn";
+import LoginModal from "./Modal/LoginModal";
 
 function TestCaver() {
+  const [isOpen, setOpen] = useState(false);
   const styles = {
     weight: "100%",
     height: "46px",
@@ -14,27 +16,27 @@ function TestCaver() {
   const { klaytn } = window;
   const [account, setAccount] = useState("");
 
-  const test=()=>{
+  const test = () => {
     searchNFT()
-    .then((response)=>{
-      console.log(response)
-   }
-   )
-   .catch((error)=>console.log(error))
-  }
-  useEffect(() => {
-    if (account == "") {
-      GetAcount()
-        .then((result) => {
-          // 결과 처리
-          console.log("Result:", result);
-          setAccount(result[0]);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
-  }, []);
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => console.log(error));
+  };
+  async function HandleButton() {}
+  // useEffect(() => {
+  //   if (account == "") {
+  //     GetAcount()
+  //       .then((result) => {
+  //         // 결과 처리
+  //         console.log("Result:", result);
+  //         setAccount(result[0]);
+  //       })
+  //       .catch((error) => {
+  //         console.error(error);
+  //       });
+  //   }
+  // }, []);
   return (
     <>
       <div style={styles}></div>
@@ -43,9 +45,8 @@ function TestCaver() {
       <button onClick={() => Mint("COME FROM AWAY", "A16", testimg)}>
         test
       </button>
-      <button onClick={()=>test()}>
-        searnft
-      </button>
+      <button onClick={() => setOpen(true)}>searnft</button>
+      <LoginModal isOpen={isOpen} setIsOpen={setOpen}></LoginModal>
     </>
   );
 }

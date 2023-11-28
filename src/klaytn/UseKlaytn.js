@@ -1,5 +1,5 @@
 import axios from "axios";
-import GetAcount from "./GetAcount";
+import GetAcount from "./GetAccount";
 
 async function MetaData(tilte, position, imgURI) {
   return new Promise((resolve, rejects) => {

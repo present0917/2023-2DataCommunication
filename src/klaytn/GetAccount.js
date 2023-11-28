@@ -69,7 +69,7 @@ async function GetAcountMobile() {
       });
   });
 }
-async function GetAcount() {
+async function GetAccount() {
   const browser = CheckBrowser();
   if (browser === "Chrome") {
     const account = GetAcountChrome();
@@ -95,4 +95,4 @@ async function GetAcount() {
   }
 }
 
-export default GetAcount;
+export default GetAccount;
