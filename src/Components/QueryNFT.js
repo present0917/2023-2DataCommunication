@@ -3,7 +3,6 @@ import { searchNFT, checkNFT } from "../klaytn/UseKlaytn";
 import GetAcount from "../klaytn/GetAcount";
 import NFTContainer from "./NFTContainer";
 import MyPageTitle from "./MyPageTitle";
-import TicketInfoModal from "./TicketInfoModal";
 import "../Css/NFTContainer.css"
 
 const QueryNFT = () => {
