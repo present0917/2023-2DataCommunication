@@ -3,6 +3,8 @@ import { searchNFT, checkNFT } from "../klaytn/UseKlaytn";
 import GetAcount from "../klaytn/GetAcount";
 import NFTContainer from "./NFTContainer";
 import MyPageTitle from "./MyPageTitle";
+import TestCheck from '../Pages/TestCheckForRoute';
+import { useLocation, useNavigate } from 'react-router-dom';
 import "../Css/NFTContainer.css"
 
 const QueryNFT = () => {
@@ -11,7 +13,26 @@ const QueryNFT = () => {
   const [loading, setLoading] = useState(false);
   const [nftJson, setNftJson] = useState(null); // 배열이 아닌 경우에 대한 처리를 위해 null로 초기화
   const [showInfo,setShowInfo]=useState(false);
+  const navigate=useNavigate();
+
   useEffect(() => {
+    console.log("라우팅테스트")
+      TestCheck()
+      .then((result) => {
+        console.log("Result:", result);
+        if(result>0)
+        {
+          console.log('ok');
+        }
+        else
+        {
+          alert("지갑 로그인 필요");
+          navigate(`/`);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
     // 계정 정보 가져오기
     const fetchAccount = async () => {
       const acc = await GetAcount();
