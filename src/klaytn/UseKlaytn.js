@@ -42,7 +42,7 @@ async function Mint(tilte, position, imgURI, owner) {
     }
 
     //토큰아이디 조회 요청 추가필요;
-    const id = "0xe0000000000000000000";
+    const id = "0xe00000000000000001231";
 
     //컨트랙트 alias 조회 과정 추가필요
     const alias = process.env.REACT_APP_CONTRACT_ALIAS;

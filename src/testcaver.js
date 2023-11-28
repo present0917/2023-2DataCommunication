@@ -40,7 +40,7 @@ function TestCaver() {
       <div style={styles}></div>
       <div>account = {account}</div>
       <br />
-      <button onClick={() => Mint("COME FROM AWAY", "A16", testimg)}>
+      <button onClick={() => Mint("COME FROM AWAY", "A16", testimg,'0x54cd13a3789b6f16db7f1a8a5e428190f278b3d5')}>
         test
       </button>
       <button onClick={()=>test()}>
