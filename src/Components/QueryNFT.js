@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { searchNFT, checkNFT } from "../klaytn/UseKlaytn";
-import GetAcount from "../klaytn/GetAcount";
+import GetAccount from "../klaytn/GetAccount";
 import NFTContainer from "./NFTContainer";
 import MyPageTitle from "./MyPageTitle";
-import "../Css/NFTContainer.css"
+import "../Css/NFTContainer.css";
 
 const QueryNFT = () => {
-  const [account, setAccount] = useState('');
+  const [account, setAccount] = useState("");
   const [nftData, setNFTData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [nftJson, setNftJson] = useState(null); // 배열이 아닌 경우에 대한 처리를 위해 null로 초기화
@@ -30,13 +30,13 @@ const QueryNFT = () => {
         try {
           const nftResult = await searchNFT(account);
           setNFTData(nftResult);
-          console.log('결과' + nftResult);
+          console.log("결과" + nftResult);
           const jsonDataArray = [];
 
           for (const item of nftResult) {
-            console.log('NFT:', item);
-            console.log('Token ID:', item.tokenId);
-            console.log('token URL:', item.tokenUri);
+            console.log("NFT:", item);
+            console.log("Token ID:", item.tokenId);
+            console.log("token URL:", item.tokenUri);
 
             // tokenUri에 있는 JSON 데이터 가져오기
             const jsonUrl = item.tokenUri;
@@ -51,7 +51,7 @@ const QueryNFT = () => {
 
           setNftJson(jsonDataArray);
         } catch (error) {
-          setNFTData('Error fetching NFT data.');
+          setNFTData("Error fetching NFT data.");
         } finally {
           setLoading(false);
         }
@@ -66,18 +66,19 @@ const QueryNFT = () => {
   return (
     <>
       <div className="mypage-container">
-        <MyPageTitle/>
+        <MyPageTitle />
         <div className="nft-main-container">
-          {nftJson && nftJson.map((item, index) => (
-            <NFTContainer
-            key={index}
-            title={item.name}
-            description={item.description}
-            image={item.image}
-            />
+          {nftJson &&
+            nftJson.map((item, index) => (
+              <NFTContainer
+                key={index}
+                title={item.name}
+                description={item.description}
+                image={item.image}
+              />
             ))}
         </div>
-            <div className="myaccount">Klaytn Account: {account}</div>
+        <div className="myaccount">Klaytn Account: {account}</div>
       </div>
     </>
   );
