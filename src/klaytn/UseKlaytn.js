@@ -86,7 +86,7 @@ async function checkNFT(token) {
     axios
       .get(apiUrl, { headers })
       .then((response) => {
-        console.log("Response:", response.data);
+        // console.log("Response:", response.data);
         if (
           response.data.createdAt == response.data.updatedAt &&
           response.data.previousOwner ==
