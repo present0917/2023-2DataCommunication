@@ -3,6 +3,7 @@ import { searchNFT, checkNFT } from "../klaytn/UseKlaytn";
 import GetAcount from "../klaytn/GetAcount";
 import NFTContainer from "./NFTContainer";
 import MyPageTitle from "./MyPageTitle";
+import TicketInfoModal from "./TicketInfoModal";
 import "../Css/NFTContainer.css"
 
 const QueryNFT = () => {
@@ -10,12 +11,12 @@ const QueryNFT = () => {
   const [nftData, setNFTData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [nftJson, setNftJson] = useState(null); // 배열이 아닌 경우에 대한 처리를 위해 null로 초기화
-
+  const [showInfo,setShowInfo]=useState(false);
   useEffect(() => {
     // 계정 정보 가져오기
     const fetchAccount = async () => {
-      const acc = process.env.REACT_APP_MY_WALLET_KEY;
-      setAccount(acc);
+      const acc = await GetAcount();
+      setAccount(acc[0]);
     };
 
     fetchAccount();
