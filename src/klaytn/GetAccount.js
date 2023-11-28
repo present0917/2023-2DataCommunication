@@ -12,7 +12,7 @@ function CheckBrowser() {
   }
 }
 
-//리턴값 [지갑키,체인id] 또는 -1
+//리턴값 [지갑키,체인id] 또는 -1  
 async function GetAcountChrome() {
   const { klaytn } = window;
   try {

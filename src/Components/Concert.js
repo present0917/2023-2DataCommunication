@@ -2,7 +2,7 @@ import React from "react";
 import '../Css/Concert.css';
 
 const Concert=(props)=>{
-    
+
 
     if(!props.concert){
         return <>Error! no Movie</>
@@ -12,8 +12,12 @@ const Concert=(props)=>{
         <div className="concert-content">
             <div className="concert-img">
                 <img 
-                    src={require(`../img/concert${props.num+1}.jpg`)} 
-                    alt={`../img/concert${props.num+1}.jpg`}
+                    //원래거
+                    //src={require(`../img/concert${props.num+1}.jpg`)} 
+                    
+                    //연동시
+                    src={`http://localhost:8080/images/${props.concert.thumbnailUrl}`}
+                    
                     style={{width:"100%"}}
                     />
             </div>

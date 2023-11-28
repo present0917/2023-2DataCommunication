@@ -27,7 +27,8 @@ const DetailCalender = (props) => {
   const handleReservation = (selectedDate) => {
     const isOkToday=checkDate(selectedDate);
     setTodayIsOk(isOkToday);
-    if (selectedDate&&selectedTimeOfConcert&&todayIsOk) {
+
+    if (selectedDate&&selectedTimeOfConcert) {
        // 포맷 옵션 설정
        const options = {
         year: 'numeric',
@@ -38,7 +39,9 @@ const DetailCalender = (props) => {
       // 날짜를 원하는 형식으로 포맷
       const sendDateInfo = selectedDate.toLocaleString('ko-KR', options)+" 오후 7:30";
       console.log(`${id},${sendDateInfo}`);
-      navigate(`../res/${id}`,{state:{id,sendDateInfo}});
+      //기존
+      //navigate(`../res/${id}`,{state:{id,sendDateInfo}});
+      navigate(`../testseat/${id}`,{state:{id,sendDateInfo}});
     } else {
       alert('날짜와 시간을 선택하세요.');
     }

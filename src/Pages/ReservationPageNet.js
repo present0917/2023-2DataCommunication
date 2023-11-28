@@ -2,7 +2,7 @@
 import React, { useState,useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import styled from 'styled-components';
-import { useParams } from "react-router-dom"
+import { useParams,useNavigate,useLocation} from "react-router-dom"
 import axios from 'axios';
 const Cont = styled.div`
     margin: 0 auto;
@@ -20,7 +20,7 @@ const Seat = styled.button`
 
 const ReservationPageNet = ({  }) => {
 
-  const params = useParams();
+  
       useEffect(
         ()=>{
             axios.get(`http://localhost:8080/concert/detail/${params.id}/book`)
@@ -32,11 +32,16 @@ const ReservationPageNet = ({  }) => {
         }
         ,[])
 
-
+  const location=useLocation();
+  const params = useParams();
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [seats, setSeats] = useState([]);
   const [rows, setRows] = useState([]);
   const [cols, setCols] = useState([]);
+  const {state}=location;
+  const {id,sendDateInfo}=state;
+  const navigate=useNavigate();
+
   useEffect(() => {
     if (seats) {
         console.log(seats);
@@ -69,13 +74,22 @@ const ReservationPageNet = ({  }) => {
 
 const request = ()=>{
   console.log(selectedSeats);
+  if(selectedSeats.length <=0){
+    alert('좌석을 선택해주세요.');
+  }else{
     axios.post(`http://localhost:8080/concert/detail/${params.id}/book`, selectedSeats)
     .then(function (response) {
       console.log(response);
+      const currentDate=new Date();
+      navigate(`/payment/${id}`,{state:{id,sendDateInfo,currentDate,selectedSeats}});
     })
     .catch(function (error) {
       console.log(error);
     });
+    
+    
+  }
+    
 
 
 }

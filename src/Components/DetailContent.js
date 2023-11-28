@@ -14,7 +14,7 @@ const DetailContent=(props)=>{
         <div className="right-content-box">
             <div className="right-content-text-box">
                         <ul className="right-ul-list">
-                            <div className="content-def-short">
+                            <div className="content-def">
                                 등급
                             </div>
                             <li className="no-dot">
@@ -22,7 +22,7 @@ const DetailContent=(props)=>{
                             </li>
                         </ul>
                         <ul className="right-ul-list">
-                            <div className="content-def-long">
+                            <div className="content-def">
                                     관람시간
                                 </div>
                                 <li className="no-dot">
@@ -30,7 +30,7 @@ const DetailContent=(props)=>{
                             </li>
                         </ul>
                         <ul className="right-ul-list">
-                            <div className="content-def-short">
+                            <div className="content-def">
                                 출연
                             </div>
                             <li className="no-dot">
