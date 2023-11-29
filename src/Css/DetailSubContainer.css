@@ -1,0 +1,50 @@
+.sub-hora {
+  margin-left: 10rem;
+  margin-right: 10rem;
+  border: 1px solid black;
+}
+.sub-hora-not-use-border {
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+.sub-sub-hora {
+  border: 1px solid black;
+  margin-top: 5rem;
+}
+.sub-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  margin-bottom: 10rem;
+}
+.detail-info-text {
+  font-family: "SUITE-Variable";
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin-top: 0.5rem;
+}
+.detail-sub-img {
+  width: 100%;
+  height: auto;
+}
+.map-text {
+  font-family: "SUITE-Variable";
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+.map-title-text {
+  font-family: "SUITE-Variable";
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  color: #007fff;
+}
+.sub-map-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#map {
+  width: 100% !important;
+}

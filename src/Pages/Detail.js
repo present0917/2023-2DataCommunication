@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import MapTest from "./MapTest";
 import DetailMobile from "../Components/DetailMobile";
+import DetailSubContainer from "../Components/DetailSubContainer";
 
 // function Detail()
 // {
@@ -93,15 +94,15 @@ function Detail() {
 
 
 
-      {concert && (!mobile && <DetailTitle title={concert.title} day={concert.day} />)}
+      {concert && (!mobile && <DetailTitle concert={concert} />)}
       {concert && (!mobile && <DetailContainer concert={concert} />)}
       {concert && (mobile && <DetailMobile concert={concert} />)}
 
 
-
-      <div style={{ display: "inline-block" }}>
+      {concert && (!mobile && <DetailSubContainer concert={concert}/>)}
+      {/* <div style={{ display: "inline-block" }}>
         {concert && <MapTest concert={concert}  ></MapTest>}
-      </div>
+      </div> */}
 
     </>
   )
