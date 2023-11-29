@@ -9,9 +9,8 @@ import PaymentMobile from "../Components/PaymentMobile";
 const Payment=(props)=>{
     const location=useLocation();
     const {state}=location;
-    const {id,selectedDate,selectedSeats}=state;
+    const {concert,selectedDate,selectedSeats}=state;
 
-    const concert=ConcertData.find(datas => datas.id==id);
 
     const [mobile, setMobile] = useState();
     useEffect(() => {
@@ -27,9 +26,9 @@ const Payment=(props)=>{
 
     return (
         <>
-            {!mobile&&<DetailTitle title={concert.title} day={concert.day}/>}
+            {!mobile&&<DetailTitle concert={concert}/>}
             {!mobile&&<PaymentContainer 
-                id={id}
+                concert={concert}
                 selectedDate={selectedDate}
                 selectedSeats={selectedSeats}
             />}

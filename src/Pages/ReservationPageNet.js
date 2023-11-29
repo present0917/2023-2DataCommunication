@@ -39,7 +39,8 @@ const ReservationPageNet = ({  }) => {
   const [rows, setRows] = useState([]);
   const [cols, setCols] = useState([]);
   const {state}=location;
-  const {id,sendDateInfo}=state;
+  const {concert,sendDateInfo}=state;
+  const id=concert.id;
   const navigate=useNavigate();
 
   useEffect(() => {
@@ -81,7 +82,7 @@ const request = ()=>{
     .then(function (response) {
       console.log(response);
       const currentDate=new Date();
-      navigate(`/payment/${id}`,{state:{id,sendDateInfo,currentDate,selectedSeats}});
+      navigate(`/payment/${id}`,{state:{concert,sendDateInfo,currentDate,selectedSeats}});
     })
     .catch(function (error) {
       console.log(error);

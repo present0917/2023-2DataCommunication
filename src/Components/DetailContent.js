@@ -2,11 +2,10 @@ import React from "react";
 import DetailCalender from "./DetailCalender";
 import "../Css/DetailContainer.css"
 
-const DetailContent=(props)=>{
-    const id=props.id;
-    const rate=props.rate;
-    const runningTime=props.runningTime;
-    const castMember=props.castMember;
+const DetailContent=({concert})=>{
+    const rate=concert.rate;
+    const runningTime=concert.runningTime;
+    const castMember=concert.castMember;
 
    
 
@@ -40,7 +39,7 @@ const DetailContent=(props)=>{
 
             </div>
                         <hr className="detail-content-horz"/>
-                        <DetailCalender id={id}/>
+                        <DetailCalender concert={concert}/>
                 </div> 
     </>)
 }

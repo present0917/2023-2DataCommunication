@@ -132,10 +132,8 @@ return (
       <div className="nft-main-container">
         {nftJson && nftJson.map((item, index) => (
           <NFTContainer
+            item={item}
             key={index}
-            title={item.name}
-            description={item.description}
-            image={item.image}
           />
         ))}
       </div>

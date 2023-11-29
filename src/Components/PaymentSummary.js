@@ -2,12 +2,10 @@ import React from "react";
 import "../Css/PaymentContainer.css";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import ConcertData from "./ConcertData";
 
 const PaymentSummary=(props)=>{
-    const {id,sendDateInfo,currentDate,selectedSeats}=props;
+    const {concert,sendDateInfo,currentDate,selectedSeats}=props;
 
-    const concert=ConcertData.find(datas=>datas.id==id);
     
     const formattedDate = new Intl.DateTimeFormat('ko-KR', {
         year: 'numeric',

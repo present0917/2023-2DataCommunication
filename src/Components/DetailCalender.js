@@ -10,12 +10,12 @@ import range from "lodash/range";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from 'react-bootstrap/Button';
 
-const DetailCalender = (props) => {
+const DetailCalender = ({concert}) => {
   const [startDate, setStartDate] = useState(new Date());
   const [selectedTimeOfConcert,setSelectedTimeOfConcert]=useState(false);
   const [todayIsOk,setTodayIsOk]=useState(false);
   
-  const id=props.id;
+  const id=concert.id;
 
   const navigate=useNavigate();
 
@@ -41,7 +41,7 @@ const DetailCalender = (props) => {
       console.log(`${id},${sendDateInfo}`);
       //기존
       //navigate(`../res/${id}`,{state:{id,sendDateInfo}});
-      navigate(`../testseat/${id}`,{state:{id,sendDateInfo}});
+      navigate(`../testseat/${id}`,{state:{concert,sendDateInfo}});
     } else {
       alert('날짜와 시간을 선택하세요.');
     }

@@ -1,10 +1,25 @@
-import React from "react";
+import React,{useState} from "react";
+import NFTModal from "./NFTModal";
 import "../Css/NFTContainer.css";
 
-const NFTContainer=({ title, description, image }) => {
+const NFTContainer=({ item }) => {
+    const [modalOpen,setModalOpen]=useState(false);
+
+    const title=item.name;
+    const description=item.description;
+    const image=item.image;
+
+    const showModal=()=>{
+        setModalOpen(true);
+    }
     return (
         <>
-            <div className="nft-sub-container">
+            {modalOpen&&
+                <NFTModal 
+                    item={item}
+                    setModalOpen={setModalOpen}
+                />}
+            <div className="nft-sub-container" onClick={showModal}>
                 <img 
                     src={image} 
                     alt="NFT" 

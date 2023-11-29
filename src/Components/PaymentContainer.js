@@ -6,8 +6,7 @@ import { useLocation } from "react-router-dom";
 const PaymentContainer=()=>{
     const location=useLocation();
     const {state}=location;
-    const {id,sendDateInfo,currentDate,selectedSeats}=state;
-
+    const {concert,sendDateInfo,currentDate,selectedSeats}=state;
     const [checkImg,setCheckImg]=useState('v');
 
     return (
@@ -26,7 +25,7 @@ const PaymentContainer=()=>{
                     </span>
                 </p>
                 <PaymentSummary 
-                    id={id}
+                    concert={concert}
                     sendDateInfo={sendDateInfo}
                     currentDate={currentDate}
                     selectedSeats={selectedSeats}

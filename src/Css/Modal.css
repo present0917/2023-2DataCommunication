@@ -1,0 +1,39 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+.modal-container {
+  width: 40rem;
+  height: 32rem;
+  z-index: 99999;
+  position: absolute;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 1px solid black;
+  border-radius: 5%;
+}
+.close {
+  position: absolute;
+  right: 0.625rem;
+  top: 0.625rem;
+  border-radius: 5%;
+}
+.modal-container-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 1rem;
+}
+.modal-image {
+}
+.ticket-description {
+  display: flex;
+  flex-direction: column;
+}
