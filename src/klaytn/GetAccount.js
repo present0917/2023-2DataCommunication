@@ -12,7 +12,7 @@ function CheckBrowser() {
   }
 }
 
-//리턴값 [지갑키,체인id] 또는 -1  
+//리턴값 지갑키 또는 -1
 async function GetAcountChrome() {
   const { klaytn } = window;
   try {
@@ -76,33 +76,38 @@ async function GetAcountMobile() {
 }
 async function GetAccount() {
   const browser = CheckBrowser();
-  try {
-    if (browser === "Chrome") {
-      const account = await GetAcountChrome();
-      try {
-        if (account !== -1) {
-          return account;
+  return new Promise((resolve, reject) => {
+    try {
+      if (browser === "Chrome") {
+        const account = GetAcountChrome();
+        try {
+          if (account !== -1) {
+            resolve(account);
+          }
+        } catch (e) {
+          console.log(e);
+          throw new Error("fail to get account at chrome");
         }
-      } catch (e) {
-        throw new Error("fail to get account at chrome");
+      } else if (browser === "Mobile") {
+        try {
+          const account = GetAcountMobile();
+          resolve(account);
+        } catch (e) {
+          console.log(e);
+          throw new Error("fail to get account at moblie");
+        }
+      } else {
+        alert(
+          "해당 기능은 Chrome 환경에서만 작동합니다. Chrome 브라우저를 사용해서 다시 시도해주세요."
+        );
+        throw new Error(
+          "해당 기능은 Chrome 환경에서만 작동합니다. Chrome 브라우저를 사용해서 다시 시도해주세요."
+        );
       }
-    } else if (browser === "Mobile") {
-      try {
-        const account = await GetAcountMobile();
-        return account;
-      } catch (e) {
-        throw new Error("fail to get account at moblie");
-      }
-    } else {
-      alert(
-        "해당 기능은 Chrome 환경에서만 작동합니다. Chrome 브라우저를 사용해서 다시 시도해주세요."
-      );
-      return -1;
+    } catch (e) {
+      reject(e);
     }
-  } catch (e) {
-    console.log(e);
-    return -1;
-  }
+  });
 }
 
 export default GetAccount;
