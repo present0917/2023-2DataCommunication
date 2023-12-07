@@ -1,5 +1,5 @@
 import axios from "axios";
-import GetAcount from "./GetAcount";
+import GetAccount from "./GetAccount";
 
 async function MetaData(tilte, position, imgURI) {
   return new Promise((resolve, rejects) => {
@@ -32,7 +32,7 @@ async function MetaData(tilte, position, imgURI) {
 }
 
 //
-async function Mint(tilte, position, imgURI, owner) {
+async function Mint(tilte, position, imgURI, owner, tokenId) {
   const jsonURI = await MetaData(tilte, position, imgURI);
   return new Promise((resolve, rejects) => {
     const Credentials = process.env.REACT_APP_KLAYTN_BASE_KEY;
@@ -41,15 +41,12 @@ async function Mint(tilte, position, imgURI, owner) {
       rejects("데이터 로드 실패");
     }
 
-    //토큰아이디 조회 요청 추가필요;
-    const id = "0xe00000000000000001231";
-
     //컨트랙트 alias 조회 과정 추가필요
     const alias = process.env.REACT_APP_CONTRACT_ALIAS;
 
     const requestData = {
       to: owner,
-      id: id,
+      id: tokenId,
       uri: jsonURI,
     };
 
@@ -86,7 +83,7 @@ async function checkNFT(token) {
     axios
       .get(apiUrl, { headers })
       .then((response) => {
-        // console.log("Response:", response.data);
+        console.log("Response:", response.data);
         if (
           response.data.createdAt == response.data.updatedAt &&
           response.data.previousOwner ==
@@ -120,18 +117,18 @@ async function searchNFT(owner) {
       alias +
       "/owner/" +
       owner;
-      console.log(url);
+    console.log(url);
     axios
       .get(url, { headers })
       .then((response) => {
-        console.log('Server Response:', response.data);
+        console.log("Server Response:", response.data);
         const imageUrl = response.data.items[0].tokenUri; // tokenUri 속성으로 수정
-        console.log('Image URL:', imageUrl);
+        console.log("Image URL:", imageUrl);
         resolve(response.data.items);
       })
-      .catch((error) => { 
+      .catch((error) => {
         console.log(error);
-        console.log('Server Error:', error);
+        console.log("Server Error:", error);
         rejects("지갑 토큰 조회 실패");
       });
   });

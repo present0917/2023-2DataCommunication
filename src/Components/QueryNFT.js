@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { searchNFT, checkNFT } from "../klaytn/UseKlaytn";
-import GetAcount from "../klaytn/GetAcount";
+import GetAccount from "../klaytn/GetAccount";
 import NFTContainer from "./NFTContainer";
 import MyPageTitle from "./MyPageTitle";
 import TestCheck from '../Pages/TestCheckForRoute';
@@ -47,7 +47,7 @@ name
       });
     // 계정 정보 가져오기
     const fetchAccount = async () => {
-      const acc = await GetAcount();
+      const acc = await GetAccount();
       setAccount(acc[0]);
     };
 
@@ -76,7 +76,7 @@ name
               .then(async (result) => {
                 // 결과 처리
                 console.log("Result:", result);
-                if (result == false) {
+                if (result == true) {
                   console.log("정상표")
                   item.illegal = 0;
                   // tokenUri에 있는 JSON 데이터 가져오기

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import GetAcount from "./klaytn/GetAcount";
+import GetAccount from "./klaytn/GetAccount";
 import { Mint, searchNFT } from "./klaytn/UseKlaytn";
 
 function TestCaver() {
@@ -24,7 +24,7 @@ function TestCaver() {
   }
   useEffect(() => {
     if (account == "") {
-      GetAcount()
+      GetAccount()
         .then((result) => {
           // 결과 처리
           console.log("Result:", result);

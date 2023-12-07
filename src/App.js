@@ -18,7 +18,7 @@ import Detail from './Pages/Detail';
 import TestCaver from './testcaver';
 import ReservationPageNet from './Pages/ReservationPageNet';
 import MapTest from './Pages/MapTest';
-import Forcheck from './Pages/ForCheck';
+
 import Payment from './Pages/Payment';
 
 

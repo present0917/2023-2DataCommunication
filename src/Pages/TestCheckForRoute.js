@@ -1,5 +1,5 @@
 import { Outlet,Navigate, useLocation } from "react-router-dom"
-import GetAcount from "../klaytn/GetAcount"
+import GetAccount from "../klaytn/GetAccount"
 import { useEffect ,useState} from "react"
 
 
