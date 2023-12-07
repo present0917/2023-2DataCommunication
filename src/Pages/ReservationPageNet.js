@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import styled from "styled-components";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import LoginModal from "../Modal/LoginModal";
-import GetAccount from "../klaytn/GetAccount";
+// import LoginModal from "../Modal/LoginModal";
+// import GetAccount from "../klaytn/GetAccount";
 import { Mint } from "../klaytn/UseKlaytn";
+import WalletContext from "../WalletContext";
 
 const Cont = styled.div`
   margin: 0 auto;
@@ -30,7 +31,7 @@ const ReservationPageNet = ({}) => {
       })
       .catch((error) => console.log(error));
   }, []);
-
+  const {account,isLogin,modalOn} = useContext(WalletContext);
   const location = useLocation();
   const params = useParams();
   const [selectedSeats, setSelectedSeats] = useState([]);
@@ -43,54 +44,54 @@ const ReservationPageNet = ({}) => {
   const navigate = useNavigate();
 
   //로그인 관련 state
-  const [isOpen, setOpen] = useState(false);
-  const [disabled, setDisabled] = useState(false);
-  const [account, setAccount] = useState("");
-  const [isLogin, setIsLogin] = useState(false);
-  const { klaytn } = window;
-  try {
-    klaytn.on("accountsChanged", function (accounts) {
-      setAccount(accounts[0]);
-    });
-    klaytn.on("disconnected", function () {
-      setAccount("");
-    });
-    klaytn._kaikas.isUnlocked().then((res) => {
-      if (res) {
-        klaytn.enable().then((res) => {
-          console.log(res);
-          setAccount(res[0]);
-        });
-      }
-    });
-  } catch (e) {
-    console.log(e);
-  }
+  // const [isOpen, setOpen] = useState(false);
+  // const [disabled, setDisabled] = useState(false);
+  // const [account, setAccount] = useState("");
+  // const [isLogin, setIsLogin] = useState(false);
+  // const { klaytn } = window;
+  // try {
+  //   klaytn.on("accountsChanged", function (accounts) {
+  //     setAccount(accounts[0]);
+  //   });
+  //   klaytn.on("disconnected", function () {
+  //     setAccount("");
+  //   });
+  //   klaytn._kaikas.isUnlocked().then((res) => {
+  //     if (res) {
+  //       klaytn.enable().then((res) => {
+  //         console.log(res);
+  //         setAccount(res[0]);
+  //       });
+  //     }
+  //   });
+  // } catch (e) {
+  //   console.log(e);
+  // }
 
-  function handleLogin() {
-    setDisabled(true);
-    GetAccount()
-      .then((res) => {
-        if (res !== account) {
-          setAccount(res);
-          console.log("check");
-        }
-        if (isOpen === true) {
-          setOpen(false);
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-    setDisabled(false);
-  }
-  useEffect(() => {
-    if (account !== "" && isLogin === false) {
-      setIsLogin(true);
-    } else if (isLogin === true) {
-      setIsLogin(false);
-    }
-  }, [account]);
+  // function handleLogin() {
+  //   setDisabled(true);
+  //   GetAccount()
+  //     .then((res) => {
+  //       if (res !== account) {
+  //         setAccount(res);
+  //         console.log("check");
+  //       }
+  //       if (isOpen === true) {
+  //         setOpen(false);
+  //       }
+  //     })
+  //     .catch((e) => {
+  //       console.log(e);
+  //     });
+  //   setDisabled(false);
+  // }
+  // useEffect(() => {
+  //   if (account !== "" && isLogin === false) {
+  //     setIsLogin(true);
+  //   } else if (isLogin === true) {
+  //     setIsLogin(false);
+  //   }
+  // }, [account]);
 
   useEffect(() => {
     if (seats) {
@@ -188,8 +189,7 @@ const ReservationPageNet = ({}) => {
       {!isLogin ? (
         <Button
           onClick={() => {
-            setOpen(true);
-            setDisabled(false);
+            modalOn();
           }}
         >
           로그인
@@ -203,13 +203,14 @@ const ReservationPageNet = ({}) => {
           구매
         </Button>
       )}
-      <LoginModal
+      <Button onClick={()=>modalOn()}>테스트</Button>
+      {/* <LoginModal
         isOpen={isOpen}
         setIsOpen={setOpen}
         disabled={disabled}
         setDisabled={setDisabled}
         handleClick={handleLogin}
-      ></LoginModal>
+      ></LoginModal> */}
     </>
   );
 };

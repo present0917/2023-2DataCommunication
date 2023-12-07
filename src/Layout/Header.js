@@ -2,12 +2,13 @@ import styled from "styled-components"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link, useLocation } from "react-router-dom";
 import { Nav, Navbar } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import LoginModal from "../Components/LoginModal";
 import { Modal } from "react-bootstrap";
 import {Button} from "react-bootstrap";
 import HomeButton from "../Components/Homebutton";
 import '../Css/Navbar.css';
+import WalletContext from "../WalletContext";
 
 const HeaderNav = styled(Nav)`
     height:40px;
@@ -30,6 +31,8 @@ function Header() {
     const [mainNavbar,setmainNavbar]=useState(false);
     const [homeNavbar,setHomeNavbar]=useState(true);
     const {pathname}=useLocation();
+
+    const {isLogin,modalOn} = useContext(WalletContext);
 
     useEffect(()=>{
         window.addEventListener('scroll',changeBackground);
@@ -71,7 +74,7 @@ function Header() {
                 <Nav.Link as={Link} to='/two' id="navbar-contents">About</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link as={Link} to='/test' id="navbar-contents">마이 페이지</Nav.Link>
+                {isLogin?<Nav.Link as={Link} to='/test' id="navbar-contents">마이 페이지</Nav.Link>:<Nav.Link as={Link} onClick={()=>modalOn()} id="navbar-contents">지갑 연결</Nav.Link>}
             </Nav.Item>
         </HeaderNav>
     );

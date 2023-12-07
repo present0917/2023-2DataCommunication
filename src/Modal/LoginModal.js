@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import React from "react";
 import ReactModal from "react-modal";
 
 // isOpen,setIsOpen,Login prop is required
@@ -13,6 +13,7 @@ const LoginModal = (props) => {
     "font-weight": "600",
   };
   return (
+    <>
     <ReactModal
       isOpen={props.isOpen}
       onRequestClose={() => props.setIsOpen(false)}
@@ -51,7 +52,7 @@ const LoginModal = (props) => {
       >
         kaikas
       </button>
-    </ReactModal>
+    </ReactModal></>
   );
 };
 export default LoginModal;

@@ -20,6 +20,7 @@ import ReservationPageNet from './Pages/ReservationPageNet';
 import MapTest from './Pages/MapTest';
 
 import Payment from './Pages/Payment';
+import { WalletProvider } from './WalletContext';
 
 
 library.add(fas)
@@ -56,8 +57,9 @@ function App() {
   ]);
   return (
     <div className="App">
-      
-      <RouterProvider router={router}></RouterProvider>
+      <WalletProvider>
+        <RouterProvider router={router}></RouterProvider>
+      </WalletProvider>
     </div>
   );
 }

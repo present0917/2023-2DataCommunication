@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { searchNFT, checkNFT } from "../klaytn/UseKlaytn";
 import GetAccount from "../klaytn/GetAccount";
 import NFTContainer from "./NFTContainer";
@@ -6,9 +6,11 @@ import MyPageTitle from "./MyPageTitle";
 import TestCheck from '../Pages/TestCheckForRoute';
 import { useLocation, useNavigate } from 'react-router-dom';
 import "../Css/NFTContainer.css"
+import WalletContext from "../WalletContext";
 
 const QueryNFT = () => {
-  const [account, setAccount] = useState('');
+  // const [account, setAccount] = useState('');
+  const {account} = useContext(WalletContext)
   const [nftData, setNFTData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [nftJson, setNftJson] = useState(null); // 배열이 아닌 경우에 대한 처리를 위해 null로 초기화
@@ -29,30 +31,30 @@ name
   let jsonIllegalData = illegalData
   console.log(jsonIllegalData);
 
-  useEffect(() => {
-    // console.log("라우팅테스트")
-    TestCheck()
-      .then((result) => {
-        // console.log("Result:", result);
-        if (result > 0) {
-          // console.log('ok');
-        }
-        else {
-          alert("지갑 로그인 필요");
-          navigate(`/`);
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-    // 계정 정보 가져오기
-    const fetchAccount = async () => {
-      const acc = await GetAccount();
-      setAccount(acc[0]);
-    };
+  // useEffect(() => {
+  //   // console.log("라우팅테스트")
+  //   TestCheck()
+  //     .then((result) => {
+  //       // console.log("Result:", result);
+  //       if (result > 0) {
+  //         // console.log('ok');
+  //       }
+  //       else {
+  //         alert("지갑 로그인 필요");
+  //         navigate(`/`);
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  //   // 계정 정보 가져오기
+  //   const fetchAccount = async () => {
+  //     const acc = await GetAccount();
+  //     setAccount(acc[0]);
+  //   };
 
-    fetchAccount();
-  }, []);
+  //   fetchAccount();
+  // }, []);
 
   useEffect(() => {
     console.log(account);

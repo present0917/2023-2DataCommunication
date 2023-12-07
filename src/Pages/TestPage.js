@@ -1,8 +1,10 @@
 import axios from "axios";
-import { useState,useEffect } from "react";
+import { useState,useEffect, useContext } from "react";
 import NftCard from "../Components/NftCard";
 import styled from "styled-components";
 import QueryNFT from "../Components/QueryNFT";
+import WalletContext from "../WalletContext";
+import { useNavigate } from "react-router-dom";
 
 
 function TestPage()
@@ -16,38 +18,45 @@ margin:10%;
 margin-top:5%;
 margin-bottom:5%;
 border: solid;
-`
-    const [cards,setCards]=useState([]);
-    const [cardstwo,setCardstwo]=useState([]);
+`   
+    const {isLogin} = useContext(WalletContext);
+    const navigate = useNavigate();
     
     useEffect(()=>{
-        axios.get('https://api.opensea.io/v2/collection/deadmigos-official/nfts?limit=3',{
-            headers:{
-                accept: 'application/json', 
-                'X-API-KEY': process.env.REACT_APP_OPENSEA_API_KEY
-            }
-        })
+        if(!isLogin){
+            navigate("/");
+            alert("지갑이 연결되지 않으면 이용하실 수 없습니다.");
+        }
+    },[isLogin])
+    
+//     useEffect(()=>{
+//         axios.get('https://api.opensea.io/v2/collection/deadmigos-official/nfts?limit=3',{
+//             headers:{
+//                 accept: 'application/json', 
+//                 'X-API-KEY': process.env.REACT_APP_OPENSEA_API_KEY
+//             }
+//         })
         
-    .then((response)=>{
-        setCards(response.data.nfts)
-        //console.log(response.data.nfts)
-    })
-    .catch((error)=>console.log(error))
+//     .then((response)=>{
+//         setCards(response.data.nfts)
+//         //console.log(response.data.nfts)
+//     })
+//     .catch((error)=>console.log(error))
 
-    axios.get('https://api.opensea.io/api/v2/chain/baobab/account/0x54cD13A3789b6F16db7f1a8a5E428190F278B3d5/nfts?limit=3',{
-            headers:{
-                accept: 'application/json', 
-                'X-API-KEY': process.env.REACT_APP_OPENSEA_API_KEY
-            }
-        })
+//     axios.get('https://api.opensea.io/api/v2/chain/baobab/account/0x54cD13A3789b6F16db7f1a8a5E428190F278B3d5/nfts?limit=3',{
+//             headers:{
+//                 accept: 'application/json', 
+//                 'X-API-KEY': process.env.REACT_APP_OPENSEA_API_KEY
+//             }
+//         })
         
-    .then((response)=>{
-        setCardstwo(response.data.nfts)
-        //console.log(response.data.nfts)
-    })
-    .catch((error)=>console.log(error))
+//     .then((response)=>{
+//         setCardstwo(response.data.nfts)
+//         //console.log(response.data.nfts)
+//     })
+//     .catch((error)=>console.log(error))
 
-},[]);
+// },[]);
 
 
 
@@ -70,7 +79,7 @@ border: solid;
 
     return(
         <>
-        <QueryNFT/>
+        {isLogin?<QueryNFT/>:<></>}
         {/* <CardsDiv>
             {cards.map(cards=>{
                 return (<NftCard data={cards}/>)
