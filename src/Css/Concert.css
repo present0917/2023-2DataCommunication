@@ -20,3 +20,18 @@
 #concert-content-day {
   margin-top: 0;
 }
+.concert-mobile-img {
+  width: 10rem;
+}
+.concert-content-mobile {
+}
+.concert-content-title-mobile {
+  width: 100%;
+  word-break: break-all;
+  word-wrap: break-word;
+  font-size: 1rem;
+}
+
+.concert-content-day-mobile {
+  font-size: 1rem;
+}

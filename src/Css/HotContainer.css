@@ -7,3 +7,14 @@
   text-decoration: none;
   font-family: "SUITE-Variable";
 }
+.hot-container-mobile {
+  display: flex;
+  flex-direction: raw;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.hot-container-mobile * {
+  color: black;
+  text-decoration: none;
+  font-family: "SUITE-Variable";
+}

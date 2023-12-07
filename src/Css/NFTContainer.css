@@ -33,13 +33,18 @@
 .nft-main-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 .nft-sub-container {
   display: flex;
   flex-direction: column;
   padding-bottom: 0.5rem;
   width: 15rem;
+  margin-left: 5rem;
+  margin-bottom: 5rem;
 }
 .nft-img {
   width: 100%;

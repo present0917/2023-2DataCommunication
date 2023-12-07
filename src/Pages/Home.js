@@ -2,6 +2,7 @@ import ControlledCarousel from "../Components/ControlledCarousel";
 import { useState,useEffect } from "react";
 import ConcertList from "../Components/ConcertList";
 import axios from "axios";
+import ConcertListMobile from "../Components/ConcertListMobile";
 function Home()
 {
     const [moblie, setMobile] = useState();
@@ -28,8 +29,10 @@ function Home()
         , [])
     return(
         <div>
-        {    list&&(!moblie&&<ControlledCarousel list={list}/>               )}
-        {list&&(<ConcertList list={list}/>)}
+        {!moblie&&list&&<ControlledCarousel list={list}/>}
+        {!moblie&&list&&<ConcertList list={list}/>}
+        {moblie&&<ConcertListMobile/>}
+
         </div>
     )
 }

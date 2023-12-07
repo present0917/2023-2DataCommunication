@@ -4,9 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../Css/DetailSubContainer.css";
 
 const DetailSubCalender=({concert})=>{
-
+    console.log(concert);
+    const bonmon=concert.images[0];
+    console.log("내용"+bonmon);
+    const na=`http://localhost:8080/images/${bonmon}`;
+    console.log("머지?"+na);
     return (
-        <>
+        <>  
             <hr className="sub-hora"/>
             <div className="sub-container">
                 <div className="detail-info-container">
@@ -14,7 +18,8 @@ const DetailSubCalender=({concert})=>{
                         상세정보
                     </p>
                     <img className="detail-sub-img"
-                        src={require(`../img/concert${concert.id+1}.jpg`)}
+                        src={`http://localhost:8080/images/${bonmon}`}
+                        
                         alt={"상세정보표시가 안됩니다."}
                     />
                 </div>

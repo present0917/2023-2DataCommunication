@@ -32,8 +32,13 @@
   margin: 1rem;
 }
 .modal-image {
+  border-radius: 5%;
 }
-.ticket-description {
+.ticket-container {
   display: flex;
   flex-direction: column;
+}
+.ticket-text {
+}
+.ticket-description {
 }

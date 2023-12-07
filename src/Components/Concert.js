@@ -20,8 +20,8 @@ const Concert=(props)=>{
                     
                     />
             </div>
-            <h5 id="concert-content-title">{props.concert.title}</h5>
-            <p id="concert-content-day">{props.concert.day}</p>
+            <h5 id="concert-content-title-mobile">{props.concert.title}</h5>
+            <p id="concert-content-day-mobile">{props.concert.day}</p>
         </div>
     </>);
 }
