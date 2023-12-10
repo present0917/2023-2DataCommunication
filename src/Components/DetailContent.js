@@ -25,7 +25,7 @@ const DetailContent=({concert})=>{
                                     관람시간
                                 </div>
                                 <li className="no-dot">
-                                    {runningTime}
+                                    {runningTime}분
                             </li>
                         </ul>
                         <ul className="right-ul-list">

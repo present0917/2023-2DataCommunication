@@ -5,10 +5,6 @@ import "../Css/DetailSubContainer.css";
 
 const DetailSubCalender=({concert})=>{
     console.log(concert);
-    const bonmon=concert.images[0];
-    console.log("내용"+bonmon);
-    const na=`http://localhost:8080/images/${bonmon}`;
-    console.log("머지?"+na);
     return (
         <>  
             <hr className="sub-hora"/>
@@ -18,7 +14,7 @@ const DetailSubCalender=({concert})=>{
                         상세정보
                     </p>
                     <img className="detail-sub-img"
-                        src={`http://localhost:8080/images/${bonmon}`}
+                        src={`http://localhost:8080/images/${concert.images[0]}`}
                         
                         alt={"상세정보표시가 안됩니다."}
                     />
