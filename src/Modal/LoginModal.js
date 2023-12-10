@@ -13,7 +13,6 @@ const LoginModal = (props) => {
     "font-weight": "600",
   };
   return (
-    <>
     <ReactModal
       isOpen={props.isOpen}
       onRequestClose={() => props.setIsOpen(false)}
@@ -38,6 +37,7 @@ const LoginModal = (props) => {
           borderRadius: "20px",
           outline: "none",
           padding: "20px",
+          "z-index": 9999999999,
         },
       }}
       ariaHideApp={false}
@@ -52,7 +52,7 @@ const LoginModal = (props) => {
       >
         kaikas
       </button>
-    </ReactModal></>
+    </ReactModal>
   );
 };
 export default LoginModal;

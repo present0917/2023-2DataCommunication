@@ -31,7 +31,7 @@ const ReservationPageNet = ({}) => {
       })
       .catch((error) => console.log(error));
   }, []);
-  const {account,isLogin,modalOn} = useContext(WalletContext);
+  const { account, isLogin, modalOn } = useContext(WalletContext);
   const location = useLocation();
   const params = useParams();
   const [selectedSeats, setSelectedSeats] = useState([]);
@@ -131,7 +131,9 @@ const ReservationPageNet = ({}) => {
     } else {
       const title = `${concert.title}`;
       console.log(concert);
-      const imgURI = await axios.get(`http://localhost:8080/mint/images/1`);
+      const imgURI = await axios.get(
+        `http://localhost:8080/mint/images/${params.id}`
+      );
       try {
         selectedSeats.forEach((seat) => {
           const seats = `${seat.col + seat.row}`;
@@ -155,7 +157,7 @@ const ReservationPageNet = ({}) => {
       } catch (e) {
         console.log(e);
       }
-     }
+    }
   };
 
   return (
@@ -203,7 +205,7 @@ const ReservationPageNet = ({}) => {
           구매
         </Button>
       )}
-      <Button onClick={()=>modalOn()}>테스트</Button>
+      <Button onClick={() => modalOn()}>테스트</Button>
       {/* <LoginModal
         isOpen={isOpen}
         setIsOpen={setOpen}
