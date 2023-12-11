@@ -14,13 +14,21 @@ export const WalletProvider = ({ children }) => {
 
   const style = {
     position: "relative",
+    width:"80%",
     border: "none",
     display: "inline-block",
     padding: "15px 30px",
     "border-radius": "15px",
     "text-decoration": "none",
+    textAlign:"center",
+    "justify-content": "space-between",
+    "font-size" : "30px"
   };
-
+  const simbolStyle = {
+    height:"30px",
+    width:"30px",
+    "margin-right":"10px"
+  }
   function modalOn() {
     setOpen(true);
     setDisabled(false);
@@ -87,12 +95,13 @@ export const WalletProvider = ({ children }) => {
             right: 0,
             bottom: 0,
             backgroundColor: "rgba(0, 0, 0, 0.75)",
+            "text-align": "center",
           },
           content: {
             position: "absolute",
             top: "20%",
-            left: "20%",
-            right: "20%",
+            left: "35%",
+            right: "35%",
             bottom: "40%",
             border: "1px solid #ccc",
             background: "#fff",
@@ -105,8 +114,8 @@ export const WalletProvider = ({ children }) => {
         ariaHideApp={false}
       >
         <button style={style} disabled={disabled} onClick={() => handleClick()}>
-          <img src={kaikas} height="30px" width="30px"></img>
-          kaikas
+          <img src={kaikas} style={simbolStyle} ></img>
+          Kaikas
         </button>
       </ReactModal>
     </WalletContext.Provider>
