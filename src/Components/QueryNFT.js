@@ -10,7 +10,7 @@ import WalletContext from "../WalletContext";
 
 const QueryNFT = () => {
   // const [account, setAccount] = useState('');
-  const {account} = useContext(WalletContext)
+  const { account } = useContext(WalletContext)
   const [nftData, setNFTData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [nftJson, setNftJson] = useState(null); // 배열이 아닌 경우에 대한 처리를 위해 null로 초기화
@@ -19,14 +19,14 @@ const QueryNFT = () => {
   let jsonUrl;
   const illegalData = {
     description
-: 
-"암표",
-image
-: 
-"https://metadata-store.klaytnapi.com/c111da93-ef33-87db-0db4-97b3bde8a54b/3c2a845e-c169-d14a-59e5-1b2c1b46d44f.jpg",
-name
-: 
-"암표입니다"
+      :
+      "암표",
+    image
+      :
+      "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcoAGdH%2FbtsBKgTo8tz%2Fs0taAkSSxKNoFF7KRxLrDk%2Fimg.png",
+    name
+      :
+      "암표입니다"
   }
   let jsonIllegalData = illegalData
   console.log(jsonIllegalData);
@@ -58,21 +58,21 @@ name
 
   useEffect(() => {
     console.log(account);
-  
+
     const fetchNFTData = async () => {
       let illegalcheck = 0;
-  
+
       if (account !== -1) {
         try {
           const nftResult = await searchNFT(account);
           setNFTData(nftResult);
-  
+
           const jsonDataArray = [];
-  
+
           for (const item of nftResult) {
             try {
               const result = await checkNFT(item.tokenId);
-  
+
               if (result === true) {
                 console.log("정상표");
                 item.illegal = 0;
@@ -81,7 +81,7 @@ name
                 console.log("암표");
                 item.illegal = 1;
               }
-  
+
               if (item.illegal === 0) {
                 console.log("정상이였어");
                 const response = await fetch(jsonUrl);
@@ -96,7 +96,7 @@ name
               console.error("Error fetching JSON data:", error);
             }
           }
-  
+
           // 데이터 처리가 끝난 후에 한 번에 업데이트
           setNftJson(jsonDataArray);
         } catch (error) {
@@ -108,26 +108,26 @@ name
         setLoading(false);
       }
     };
-  
+
     fetchNFTData();
   }, [account]);
 
-return (
-  <>
-    <div className="mypage-container">
-      <MyPageTitle />
-      <div className="nft-main-container">
-        {nftJson && nftJson.map((item) => (
-          <NFTContainer
-            item={item}
-            key={item.description}
-          />
-        ))}
+  return (
+    <>
+      <div className="mypage-container">
+        <MyPageTitle />
+        <div className="nft-main-container">
+          {nftJson && nftJson.map((item) => (
+            <NFTContainer
+              item={item}
+              key={item.description}
+            />
+          ))}
+        </div>
+        <div className="myaccount">Klaytn Account: {account}</div>
       </div>
-      <div className="myaccount">Klaytn Account: {account}</div>
-    </div>
-  </>
-);
+    </>
+  );
 };
 
 export default QueryNFT;
