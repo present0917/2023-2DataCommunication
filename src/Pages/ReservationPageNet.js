@@ -205,7 +205,7 @@ const ReservationPageNet = ({}) => {
           구매
         </Button>
       )}
-      <Button onClick={() => modalOn()}>테스트</Button>
+      {/* <Button onClick={() => modalOn()}>테스트</Button> */}
       {/* <LoginModal
         isOpen={isOpen}
         setIsOpen={setOpen}

@@ -47,7 +47,7 @@ const NFTModal=({item,setModalOpen})=>{
                     <div className="ticket-description">
                         <p>{title}</p>
                         <p>{description}</p>
-                        <p>{image}</p>
+                        {/* <p>{image}</p> */}
                     </div>
                 </div>
             </div>
