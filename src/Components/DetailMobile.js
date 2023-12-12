@@ -10,13 +10,13 @@ const DetailMobile=({concert})=>{
                 <DetailMobileTitle title={concert.title} day={concert.day}/>
                 <div className="mobile-image">
                     <img
-                    src={`http://localhost:8080/images/${concert.thumbnailUrl}`}
-                        //src={require(`../img/concert${concert.id+1}.jpg`)}
+                    //src={`http://localhost:8080/images/${concert.id+1}`}
+                    src={require(`../img/concert${concert.id+1}.jpg`)}
                         alt={"bug"}
                         style={{width:"60%"}}
                     />
                 </div>
-                <DetailCalender id={concert.id}/>
+                <DetailCalender concert={concert}/>
             </div>
         </>
     )

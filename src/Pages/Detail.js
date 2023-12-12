@@ -47,7 +47,7 @@ import DetailSubContainer from "../Components/DetailSubContainer";
 //서버연동시
 function Detail() {
   const params = useParams();
-
+  const concertMobile=ConcertData.find(datas => datas.id==params.id);
   const [mobile, setMobile] = useState();
   useEffect(() => {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -96,7 +96,7 @@ function Detail() {
 
       {concert && (!mobile && <DetailTitle concert={concert} />)}
       {concert && (!mobile && <DetailContainer concert={concert} />)}
-      {concert && (mobile && <DetailMobile concert={concert} />)}
+      {mobile && <DetailMobile concert={concertMobile} />}
 
 
       {concert && (!mobile && <DetailSubContainer concert={concert}/>)}

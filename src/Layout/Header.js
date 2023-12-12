@@ -54,7 +54,6 @@ function Header() {
     if (pathname === "/") {
       setHomeNavbar(true);
     } else {
-      console.log(pathname);
       setHomeNavbar(false);
     }
   };

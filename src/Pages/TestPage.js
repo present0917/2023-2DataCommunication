@@ -7,15 +7,7 @@ import WalletContext from "../WalletContext";
 import { useNavigate } from "react-router-dom";
 
 function TestPage() {
-  const CardsDiv = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    width: 80%;
-    margin: 10%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    border: solid;
-  `;
+  
   const { isLogin } = useContext(WalletContext);
   const navigate = useNavigate();
   useEffect(() => {
