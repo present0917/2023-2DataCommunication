@@ -15,7 +15,7 @@ async function MetaData(tilte, position, imgURI) {
     axios
       .post("https://metadata-api.klaytnapi.com/v1/metadata", data, {
         headers: {
-          "x-chain-id": "8217",
+          "x-chain-id": "1001",
           Authorization: `Basic ${Credentials}`,
           "Content-Type": "application/json",
         },
@@ -51,7 +51,7 @@ async function Mint(tilte, position, imgURI, owner, tokenId) {
     };
 
     const headers = {
-      "x-chain-id": "8217",
+      "x-chain-id": "1001",
       Authorization: "Basic " + Credentials,
       "Content-Type": "application/json",
     };
@@ -76,14 +76,14 @@ async function checkNFT(token) {
     const Credentials = process.env.REACT_APP_KLAYTN_BASE_KEY;
 
     const headers = {
-      "x-chain-id": "8217",
+      "x-chain-id": "1001",
       Authorization: `Basic ${Credentials}`,
     };
 
     axios
       .get(apiUrl, { headers })
       .then((response) => {
-        console.log("Response:", response.data);
+        //console.log("Response:", response.data);
         if (
           response.data.createdAt == response.data.updatedAt &&
           response.data.previousOwner ==
@@ -109,7 +109,7 @@ async function searchNFT(owner) {
     const alias = process.env.REACT_APP_CONTRACT_ALIAS;
 
     const headers = {
-      "x-chain-id": "8217",
+      "x-chain-id": "1001",
       Authorization: "Basic " + Credentials,
     };
     const url =
@@ -117,13 +117,13 @@ async function searchNFT(owner) {
       alias +
       "/owner/" +
       owner;
-    console.log(url);
+    //console.log(url);
     axios
       .get(url, { headers })
       .then((response) => {
-        console.log("Server Response:", response.data);
+        //console.log("Server Response:", response.data);
         const imageUrl = response.data.items[0].tokenUri; // tokenUri 속성으로 수정
-        console.log("Image URL:", imageUrl);
+        //console.log("Image URL:", imageUrl);
         resolve(response.data.items);
       })
       .catch((error) => {

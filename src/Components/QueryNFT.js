@@ -29,7 +29,7 @@ const QueryNFT = () => {
       "암표입니다"
   }
   let jsonIllegalData = illegalData
-  console.log(jsonIllegalData);
+  // console.log(jsonIllegalData);
 
   // useEffect(() => {
   //   // console.log("라우팅테스트")
@@ -57,7 +57,7 @@ const QueryNFT = () => {
   // }, []);
 
   useEffect(() => {
-    console.log(account);
+    // console.log(account);
 
     const fetchNFTData = async () => {
       let illegalcheck = 0;
@@ -71,8 +71,9 @@ const QueryNFT = () => {
 
           for (const item of nftResult) {
             try {
-              const result = await checkNFT(item.tokenId);
 
+              const result = await checkNFT(item.tokenId);
+              console.log(item);
               if (result === true) {
                 console.log("정상표");
                 item.illegal = 0;
@@ -83,13 +84,13 @@ const QueryNFT = () => {
               }
 
               if (item.illegal === 0) {
-                console.log("정상이였어");
+                //console.log("정상이였어");
                 const response = await fetch(jsonUrl);
                 const jsonData = await response.json();
                 jsonDataArray.push(jsonData);
-                console.log(jsonData);
+                //console.log(jsonData);
               } else {
-                console.log("암표였어");
+                //console.log("암표였어");
                 jsonDataArray.push(jsonIllegalData);
               }
             } catch (error) {
