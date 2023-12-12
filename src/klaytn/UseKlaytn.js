@@ -83,7 +83,7 @@ async function checkNFT(token) {
     axios
       .get(apiUrl, { headers })
       .then((response) => {
-        console.log("Response:", response.data);
+        //console.log("Response:", response.data);
         if (
           response.data.createdAt == response.data.updatedAt &&
           response.data.previousOwner ==
@@ -117,13 +117,13 @@ async function searchNFT(owner) {
       alias +
       "/owner/" +
       owner;
-    console.log(url);
+    //console.log(url);
     axios
       .get(url, { headers })
       .then((response) => {
-        console.log("Server Response:", response.data);
+        //console.log("Server Response:", response.data);
         const imageUrl = response.data.items[0].tokenUri; // tokenUri 속성으로 수정
-        console.log("Image URL:", imageUrl);
+        //console.log("Image URL:", imageUrl);
         resolve(response.data.items);
       })
       .catch((error) => {
