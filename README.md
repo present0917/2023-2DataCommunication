@@ -1,5 +1,4 @@
 # NFT Concert Ticketing Flatform
-<br>
 
 ### FrontEnd
 <img alt="express" src ="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"/> 
@@ -9,8 +8,6 @@
 
 ### BackEnd https://github.com/whxogus215/DataCommunicationProject
 <img alt="express" src ="https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white"/> 
-
-<br>
 
 
 ### klaytn network 상에서 Block Chain Contract로<br>NFT를 구매하는 형식으로 암표를 방지할 수 있는 <br>콘서트 티켓팅 플랫폼입니다.
